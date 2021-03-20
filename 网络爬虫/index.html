@@ -1,0 +1,1199 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>明日科技</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE11">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="pragma" content="no-cache"> 
+<meta http-equiv="Cache-Control" content="no-cache, must-revalidate"> 
+<meta http-equiv="expires" content="0">
+<meta name="keywords" content="明日学院，明日科技，教育，在线课程，优质视频，视频教程，Java，JavaScript，php，C#，Visual Basic，Visual C++，Oracle，JavaWeb，Asp.net" />
+<meta name="description" content="明日学院是吉林省明日科技有限公司研发的在线教育平台，该平台面向学习者提供大量优质视频教程：Java、JavaWeb、JavaScript、VC++、php、C#、Asp.net、Oracle、Visual Basic等，并提供良好的线上服务。" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="/Public/css/base.css" />
+<link type="text/css" href="/Public/css/style.css?1608103360" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="/Public/css/common.css" />
+<link type="text/css" href="/Public/css/head-style.css?1608103360" rel="stylesheet"/>
+<style type="text/css">
+body,html{ padding:0px; margin:0px;}
+.member_day{width:1063px; height:648px;  margin:auto; position:absolute;-webkit-animation:bg 5s linear 1 alternate;-moz-animation:bg 5s linear 1 alternate;-o-animation:bg 5s linear 1 alternate; -ms-animation:bg 5s linear 1 alternate;animation:bg 5s linear 1 alternate; z-index:101; margin-left:50%;}
+@keyframes bg {0% {top:-653px;}10%{top:-653px;} 25% {top:0px;}50% {top:-12px;}75% {top:0px;}95% {top:0px;}100% {top:0px;}}
+.cash_go{width:119px; height:30px; overflow:hidden; position:absolute; bottom:100px; left:-15%;}
+.member_day span{ margin-left:-50%;}
+.c_close{width:33px; height:33px; overflow:hidden; position:absolute; right:72%; top:92px;}
+</style>
+<script type="text/javascript" src="/Public/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/Public/js/onehour/bluebird.min.js"></script>
+<script type="text/javascript" src="/Public/js/onehour/html2canvas.min.js"></script>
+<script type="text/javascript" src="/Public/static/layer/layer.js"></script>
+<script type="text/javascript" src="/Public/js/fun.js"></script>
+<script type="text/javascript" src="/Public/js/chklogin.js"></script>
+<script type="text/javascript" src="/Public/js/jquery.qrcode.min.js"></script>
+<script type="text/javascript">
+var update_url="/Index/Index/update.html";
+$(function(){ 
+  var group_name = "Index";
+  var module_name = "Index";
+  if(group_name.toLowerCase()=='bbs'){
+     $("input[id=search_type]").val(1);$(".search-nav").text('社区');
+  }else if(module_name.toLowerCase()=='book'){
+     $("input[id=search_type]").val(2);$(".search-nav").text('读书');
+  }
+  if(group_name == 'Resource'){
+     $('.cart_icon,.cart_icon2').show();
+  }else{
+     $('.cart_icon,.cart_icon2').hide();
+  }
+  $('.c_close').click(function(){
+      $('.cash_go').slideUp(100);
+      $('.c_close').slideUp(1000);
+      $('.member_day span').slideUp(1000);
+	  $('#member').slideUp(1000);
+  }) 
+});
+</script>
+<script type="text/javascript" src="/Public/js/toTop.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7ade37dbcaaf8d331c6ccd07d6fd1f99";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body style="overflow-x:hidden;">
+<div id="body_content">
+		<!--更改开始-->
+    		<div class="mrit-index-child">
+   			 	<div class="mrit-child-content">
+                <!--开始-->
+                	<div class="mrit-child-user">
+                		<div class="mrit-header-login">
+							<div class="top-top-in-center"  style="position:relative;" id="center">
+								                                    <div class="mrit-header-logina" style="color:#666; font-weight:bold;"><a href="https://passport.mingrisoft.com/login/index.html?tpl=sch" style="color:#666;" target="_blank">登录</a> |<a href="https://passport.mingrisoft.com/login/regist.html?tpl=sch" style="color:#666;" target="_blank"> 注册</a></div>							</div>
+						</div>
+                </div>
+                <!--结束-->
+    				<div class="logo_box_img">
+    					<a href="/网络爬虫/index.html" style="float:left; margin-right:10px;"><img src="/Public/images/logo.png" alt="明日学院"></a>
+                        
+						<!--搜索开始-->
+        				<div class="search_box">
+        					<div class="top-nav-search">
+                        		<div class="top-nav-list" onMouseOver="this.style.display='block';" onMouseOut="this.style.display='none';">
+                                    <div class="top-list-content" >
+                            			<div class="top-nav-list-li"><a id="course" href="javascript:;">课程</a></div>
+                                        <div class="top-nav-list-li"><a id="book"   href="javascript:;">读书</a></div>
+                            			<div class="top-nav-list-li"><a id="forum"  href="javascript:;">社区</a></div>                                        
+                                    </div>
+                        		</div>
+                            	<form name="searchForm" id="searchForm" method="post" action="/Index/Video/searchVideo.html" onSubmit="return chkSearch(this)">
+                                	<div class="search-nav search-nav-top" style=" margin-top:7px;">
+                                   		 <span class="top-search-course">课程</span>
+                                	</div>
+                               		<input type="text" name="keyword"  class="top-nav-search-input"  placeholder="请输入内容"/>
+                                	<input type="hidden" name="search_type" id="search_type" value="0"/>
+                                	<input type="image" src="/Public/images/search_a.png" class="search_box_img"  onFocus="this.blur()" />
+                              	</form>
+							</div>
+						</div>
+						<!--搜索结束-->
+                        
+						<div class="mrit-child-title">
+							<div class="mingri_book f_r App_out" style='margin-left:10px;float:left;'>
+								<a href="http://shop573124214.taobao.com" target="_blank" class="a_download"><i></i>淘宝店铺</a>
+                                <!--<div class="App_download">
+                                	<img src="/Public/images/course_05.png" alt=""  />
+                                    APP下载-->
+                                	<!--APP二维码开始-->
+                                	<!--<div class="App_wx">
+                                    	<div class="App_code"><img src="/Public/images/APP_code.png" alt="APP二维码"  /></div>
+                                    </div>-->
+                                	<!--APP二维码结束-->
+                                <!--</div>-->
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		<!--更改结束-->
+		<!--导航开始-->
+			<div class="mrit-index-child" style="height:auto;">
+				<div class="nav_box">
+					<div class="mar_1200">
+												<ul>
+							<li>
+								<a href="/网络爬虫/index.html" style="color:#fff;background:#309bd1;">首页</a>
+							</li>
+                            
+							<li style="width:120px">
+									<a href="/childrenarticle.html"  >明日编程训练营</a>
+								</li>							
+							<li>
+								<a href="/selfCourse.html"  >课程</a>
+							</li> 
+                            
+                            <li>
+                                <a href="/book.html"  >读书</a>
+                            </li>
+							<li><a href="https://zyk.mingrisoft.com" target="_blank">开发资源库</a></li>                  
+                            
+							<li>
+								<a href="/bbs.html"  >社区</a>
+							</li>
+                            <!--<li><a href="https://zyk.mingrisoft.com/OneHour/index.html" target="_blank">编程一小时</a></li>-->        
+							<li>
+								<a href="/servicecenter.html"  >服务中心</a>
+							</li>
+                            
+                            
+						</ul>
+                        <!--APP下载开始-->
+                         <div style="float:left; position:relative;">
+                            <div class="app_other" id="app_box">
+                               <div class="app_li">
+                                    <a href="/Index/Index/app_detail.html" class="app_link" >
+                                        APP下载
+                                       <div class="app_box">
+                                           <div class="app_box2">
+                                                <div class="app_img">
+                                                    <img src="/Public/images/APP_code.png" alt="APP二维码"/>	
+                                                </div>
+                                                <div class="app_txt">扫描下载官方APP</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!--APP下载结束-->
+                         
+                       <span class="nav_box_new">
+							<a href="/Vip/joins.html" ><img src="/Public/images/nav_vip_a.png" width="22" height="22"  alt=""  />VIP会员</a>
+						</span>
+                          <!--我的购物车开始-->
+                          <!--<span class="cart_icon" style="display:none;">
+                         	<a href="/Resource/Index/mycarts.html"><img src="/Public/resource/images/cart.png" title="我的购物车"/></a>
+                          </span>-->
+                          <span class="cart_icon" style="display:none">
+                                                            <a href="javascript:" onClick="plslogin();"><img src="/Public/resource/images/r_shop.png"/>购物车</a>                          </span>
+                        <!--我的购物车结束-->
+					</div>
+			    </div>
+		   </div>
+		<!--导航结束-->
+		<!--下拉导航开始-->
+			<div class="mrit-index-fixed">
+				<div class="mrit-index-child" style="height:auto;">
+					<div class="nav_box">
+						<div class="mar_1200" style="overflow:visible;">
+														<ul>
+								<li>
+									<a href="/网络爬虫/index.html" style="color:#fff;background:#309bd1;">首页</a>
+								</li>
+								
+								<li style="width:120px">
+										<a href="/childrenarticle.html"  >明日编程训练营</a>
+									</li>                                
+								<li>
+									<a href="/selfcourse.html"  >课程</a>
+								</li> 
+                                
+                                <li>
+									<a href="/book.html"  >读书</a>
+								</li>
+								<li><a href="https://zyk.mingrisoft.com" target="_blank">开发资源库</a></li>
+                                
+								<li>
+									<a href="/bbs.html" >社区</a>
+								</li>
+								<!--<li><a href="https://zyk.mingrisoft.com/OneHour/index.html" target="_blank">编程一小时</a></li>-->      
+								<li>
+									<a href="/servicecenter.html"  >服务中心</a>
+								</li>
+                                
+                                
+                                
+                                 <!--APP下载开始-->
+                                 <li id="app_down" style="width:110px;">
+									<a href="/Index/Index/app_detail.html" style="overflow:visible;" >
+                                        APP下载
+                                        <div class="app_box3">
+                                            <div class="app_box2">
+                                                <div class="app_img">
+                                                    <img src="/Public/images/APP_code.png" alt="APP二维码"/>	
+                                                </div>
+                                                <div class="app_txt">扫描下载官方APP</div>
+                                            </div>
+                                        </div>
+                                    </a>
+								</li>
+                                <!--APP下载结束-->
+                                 
+							</ul>
+							<!--搜索开始-->
+								<!--<div class="mrit-index-search">
+									<div class="top-nav-all" style="position:relative;">
+										<div class="top-nav-next" onMouseOver="this.style.display='block';" onMouseOut="this.style.display='none';">
+											<div class="top-next-content" >
+												<div class="top-nav-next-li"><a id="course" href="javascript:;" style="color:#b2b2b2;" >课程</a></div>
+                                                <div class="top-nav-next-li"><a id="books"  href="javascript:;" style="color:#b2b2b2;" >读书</a></div>
+												<div class="top-nav-next-li"><a id="forum"  href="javascript:;" style="color:#b2b2b2;" >社区</a></div>                                                
+											</div>
+										</div>
+										<div class="top-search-next">
+											<form name="searchForm" id="searchForm" method="post" action="/Index/Video/searchVideo.html" onSubmit="return chkSearch(this)">
+												<div class="search-nav search-nav-next" style="margin-top:2px;">
+													<span class="top-search-course">课程</span>
+												</div>
+												<input type="text" name="keyword"  class="top-nav-search-next"  placeholder="请输入内容"/>
+												<input type="hidden" name="search_type" id="search_type" value="0"/>
+												<input type="image" src="/Public/images/search-n.png" onFocus="this.blur()" class="top-nav-search-icon" style="margin-top:2px;" />
+											</form>
+										</div>
+									</div>
+								</div>-->
+							 <!--搜索结束-->
+                             <span class="nav_box_new">
+								<a href="/Vip/joins.html" ><img src="/Public/images/nav_vip_a.png" width="22" height="22"/>VIP会员</a>
+							 </span>
+                             <!--我的购物车开始-->
+                             <!--<span class="cart_icon2" style="display:none;">
+                            	<a href="/Resource/Index/mycarts.html"><img src="/Public/resource/images/cart.png" title="我的购物车"/></a>
+                             </span>-->
+                             <span class="cart_icon2" style="display:none"> 
+                                                                     <a href="javascript:" onClick="plslogin();"><img src="/Public/resource/images/r_shop.png"/>购物车</a>                             </span>
+                             <!--我的购物车结束-->
+						</div>
+					</div>
+				</div>
+			</div>
+	<!--下拉导航结束-->
+<script type="text/javascript" src="/Public/js/slides.min.jquery.js"></script>
+<script type="text/javascript" src="/Public/js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="/Public/js/jquery.SuperSlide2.js"></script>
+<script type="text/javascript" src="/Public/js/jquery.jslides.js"></script>
+<script type="text/javascript">
+$(function(){$(".item-change-txt-content,.popular-courses-bottom-write").each(function(){for(var a=$(this).height(),b=$("p",$(this)).eq(0);b.outerHeight()>a;)b.text(b.text().replace(/(s)*(.)(...)?$/,"..."))});$("#slides").slides({preload:!0,preloadImage:"/Public/images/loading.gif",play:5E3,pause:2500,hoverPause:!0,animationStart:function(){$(".caption").animate({bottom:-20},100)},animationComplete:function(a){$(".caption").animate({bottom:0},200)}});$(document).ready(function(){$(window).scroll(function(){var a=
+$(window).scrollTop();250<a&&750>a?(0==$("#szdescrib:animated").length&&$("#szdescrib").show().animate({marginLeft:"10px"},1E3).animate({marginLeft:0},1E3),$("#sysdescrib").hide()):(1000<a&&1450>a?0==$("#sysdescrib:animated").length&&$("#sysdescrib").show().animate({marginLeft:"10px"},1E3).animate({marginLeft:0},1E3):$("#sysdescrib").hide(),$("#szdescrib").hide())}).trigger("scroll")});$(".popular-courses-top-made").click(function(){$(".popular-courses-panel").slideToggle("slow")})});
+$(function(){$(".learn_box .vip_a").hover(function(){$(".learn_hide").addClass("learn_show");$(this).removeClass("viphover")});$(".learn_hide").mouseout(function(){},function(){$(this).removeClass("learn_show");$(".n-round-center").addClass("viphover")})});
+$(function(){$(".learn_box .vip_a_2").hover(function(){$(".learn_hide_2").addClass("learn_show_2");$(".vip_a").css("display","none");$(this).removeClass("viphover")});$(".learn_hide_2").mouseout(function(){},function(){$(this).removeClass("learn_show_2");$(".n-round-center").addClass("viphover");$(".vip_a").css("display","block")})});
+var chknameurl = "/Index/User/chkname.html";
+var loginurl = "/Index/User/chkLogin.html";
+function active(){  
+   var user_id = "";
+   if(user_id !=''){
+       $.ajax({
+		  type: "get",
+		  url : "/Ajax/chkactive.html",		  
+		  success: function(data){
+			 if(data == -1){                   
+				layer.msg("登录超时，请重新登录！",{time:1000},function(){
+					window.location.href = "https://passport.mingrisoft.com/login/index.html?tpl=sch";
+				});                        
+			}else if(data == -2){
+				layer.msg("您的账号已在其他地点登录！",{time:1000},function(){
+					window.location.href = "https://passport.mingrisoft.com/login/index.html?tpl=sch";
+				}); 
+			}else{											
+				if(data.status){ 
+				   layer.alert(data.msg,function(){
+					  window.location.href = "/Index/User/myVip.html";
+				   });
+				}else{
+				   layer.alert(data.msg);   
+				}				
+			}											
+		  }
+	   });	
+   }else{ 
+      display_window('loginwindow');
+   }
+}
+</script>
+
+<link rel="stylesheet" type="text/css" href="/Public/css/loginwindow.css" />
+<script type="text/javascript" src="/Public/js/loginwindow.js"></script>
+<script type="text/javascript" src="/Public/js/jquery.validate.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/Public/css/tcode/Qaptcha.jquery.css" />
+<link rel="stylesheet" type="text/css" href="/Public/css/tcode/loading.css" />
+<script type="text/javascript" src="/Public/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/Public/js/jquery.ui.touch.js"></script>
+<style type="text/css">
+.QapTcha .bgSlider{ width:294px;}
+.QapTcha .bgMasks{ width:294px;}
+#iQapTcha-error{left: -94px;position: absolute;top: 39px;}
+.input-box{ overflow:visible; width:294px;}
+.QapTcha .Slider{ position:absolute; top:0px;}
+</style>
+<script type="text/javascript">
+    var qurl="/Index/Index/checkSlider.html";var setQapTchaurl = "/Index/User/setQapTcha.html";var chkQapTchaurl = "/Index/User/chkQapTcha.html";var chkloginurl = "/Index/User/chkLogin.html";
+</script>
+<script type="text/javascript" src="/Public/js/Qaptcha.jquery.js"></script>
+<!--弹出登录开始-->
+<div class="page-wrap" id="loginwindow" style="display:none;">
+    <div class="pop-login">
+        <div class="pop-login-bottom">
+            <!--开始-->
+            <div class="pop-login-all">
+                <form id="login_form" name="login_form" action="" method="post" class="form" autocomplete="off"  style="padding:0px;">
+                    <input type="password" name="dispassword" autocomplete="off" style="display:none;"/>
+                    <div class="pop-login-form">
+                        <div class="pop-login-li">
+                            <input class="required pop-login-username"  type="text" id="username" name="username" placeholder="用户名/手机/邮箱"  />
+                        </div>
+                        <div class="pop-login-li">
+                            <input class=" required pop-login-password"   type="password" maxlength="30" name="passwords" id="passwords" placeholder="请输入密码" />
+                            <a href="https://passport.mingrisoft.com/forgetpwd.html?tpl=sch" target="_blank" class="pop-login-forget">忘记密码?</a>
+                        </div>
+                        <!--<div class="pop-login-li" style="margin-top:28px;">-->
+                            <!--<input class="required pop-login-code" type="text" name="code" id="code"  placeholder="请输入右侧验证码"/>-->
+                            <!--<div class="login-indentifying-code" style="width:auto;"> <img src="/Index/User/verify.html"  id="imgcode" onclick="this.src=this.src+'?'+Math.random()" style=" height:38px; width:85px; float:left;">-->
+                                <!--<a href="javascript:;" onclick="refreshCode()" class="refreshCode"></a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <div class="input-box" style="height:50px; position:relative; margin-top:10px;" id="code_container">
+                            <!--<span class="input-name">验证码<h></h>：</span>-->
+                            <!--<input class="safe-number cf required finput-box-code" type="text" name="code" id="code"  placeholder="验证码" autocomplete="off"/>-->
+                            <!--<div class="login-indentifying-code" style="width:auto;">-->
+                            <!--<img src="/Index/User/verify.html"  id="imgcode" onClick="this.src=this.src+'?'+Math.random()" style=" height:39px; width:95px; float:left;">-->
+                            <!--<a href="javascript:;" onClick="refreshCode()" class="refreshCode"></a>-->
+                            <!--</div>-->
+                            <!--<span class="input-name cf">滑动验证：</span>-->
+                            <div id="QapTcha" class="QapTcha" style="margin-top:0px;"></div>
+                        </div>
+                        <div class="sevenday" style="padding-top:10px;">
+                        
+                           <input type="checkbox" name="rempwd" value="1" id="loga" checked/>
+                           <span class="pop-login-font">
+                              <label for="loga">记住密码</label>
+                              <span class="pop-login-none" style="margin-left:88px;">没有账号？<a href="https://passport.mingrisoft.com/login/regist.html?tpl=sch" target="_blank" class="pop-login-link">立即注册</a></span>
+                           </span>
+                        
+                        </div>
+                        <div class="pop-login-out">
+                        	<input type="submit" value="登录" class="pop-login-button" onFocus="this.blur()" >
+                        </div>
+                    </div>
+                </form>
+                <div class="pop-login-txt">其他方式登录</div>
+                                            <div class="pop-login-qq">
+                            <a class="third-login" href="/Index/User/quickLogin/type/qq.html"></a>
+                        </div>                                            <div class="pop-login-other">
+                            <a href="javascript:;" data-st="https://www.mingrisoft.com/User/quickLogin/type/weixin.html" onclick="showLoginWindow(this)"></a>
+                        </div>                    <div class="pop-login-wb">
+                        <a class="third-login" href="/Index/User/quickLogin/type/sina.html"></a>
+                    </div>
+            	</div>
+            <!--结束-->
+        </div>
+    </div>
+</div>
+<!--弹出登录结束-->
+<script type="text/javascript" src="/Public/js/jsencrypt.min.js"></script>
+<script type="text/javascript">
+    $('.third-login').click(function(){
+        var url = $(this).attr('href');
+        layer.open({
+            type:2,
+            title: false,
+            shadeClose:true,
+            area:['800px','440px'],
+            content:url
+        });
+        return false;
+    });
+    //供子窗口调用
+    function callback(message){
+        if(message == '登录成功'){
+            layer.msg(message,{time:1000},function(){
+                window.location.reload();
+            });
+        }else{
+            layer.msg(message,{time:2000});
+        }
+    }
+    $(function () {
+        $('#QapTcha').QapTcha();
+    })
+</script><!--首页轮播图开始-->
+<div class="mrit-index-content">
+<div class="mrit-content-img">
+	<div class="mrit-content-center">
+		<div class="page-wrap">
+        	<!--<div class="fullpage-rotate">
+           		<div class="fullpage-rotate-child">
+                 	 <div class="fullpage-both">
+                            <div class="fullpage-rotate-li"></div>
+                            <div class="fullpage-rotate-text">
+                           		<a href="/Index/Course/selfCourse/id/1.html">Java</a>
+                            </div>
+                        </div><div class="fullpage-both">
+                            <div class="fullpage-rotate-li"></div>
+                            <div class="fullpage-rotate-text">
+                           		<a href="/Index/Course/selfCourse/id/11.html">Android</a>
+                            </div>
+                        </div><div class="fullpage-both">
+                            <div class="fullpage-rotate-li"></div>
+                            <div class="fullpage-rotate-text">
+                           		<a href="/Index/Course/selfCourse/id/43.html">JavaWeb</a>
+                            </div>
+                        </div><div class="fullpage-both">
+                            <div class="fullpage-rotate-li"></div>
+                            <div class="fullpage-rotate-text">
+                           		<a href="/Index/Course/selfCourse/id/38.html">PHP</a>
+                            </div>
+                        </div><div class="fullpage-both">
+                            <div class="fullpage-rotate-li"></div>
+                            <div class="fullpage-rotate-text">
+                           		<a href="/Index/Course/selfCourse/id/4.html">C#</a>
+                            </div>
+                        </div><div class="fullpage-both">
+                            <div class="fullpage-rotate-li"></div>
+                            <div class="fullpage-rotate-text">
+                           		<a href="/Index/Course/selfCourse/id/48.html">VC++</a>
+                            </div>
+                        </div><div class="fullpage-both">
+                            <div class="fullpage-rotate-li"></div>
+                            <div class="fullpage-rotate-text">
+                           		<a href="/Index/Course/selfCourse/id/3.html">C++</a>
+                            </div>
+                        </div>                </div>
+            </div>-->
+        </div>
+        <div id="full-screen-slider">
+			<ul id="slides_full">
+
+                                          <a href="https://item.jd.com/12737107.html" target="_blank"><li style="background:url('/Public/uploads/index_pic/5fb476c8e6ccd.jpg') no-repeat center top; background-color:#FFFFFF;"></li></a>                                              <a href="https://item.jd.com/12952982.html" target="_blank"><li style="background:url('/Public/uploads/index_pic/5f5ae770c4be4.jpg') no-repeat center top; background-color:#FFFFFF;"></li></a>                                              <a href="https://item.jd.com/12752623.html" target="_blank"><li style="background:url('/Public/uploads/index_pic/5fb476dd71ca6.jpg') no-repeat center top; background-color:#FFFFFF;"></li></a>                                              <a href="https://www.mingrisoft.com/childrenarticle.html" target="_blank"><li style="background:url('/Public/uploads/index_pic/5fb4760d39725.jpg') no-repeat center top; background-color:#FFFFFF;"></li></a>                                              <a href="https://item.jd.com/12929270.html" target="_blank"><li style="background:url('/Public/uploads/index_pic/5fb475b6c43c8.jpg') no-repeat center top; background-color:#FFFFFF;"></li></a>                                              <a href="https://resource.mingrisoft.com" target="_blank"><li style="background:url('/Public/uploads/index_pic/5fb4758840390.jpg') no-repeat center top; background-color:#FFFFFF;"></li></a>                                              <a href="https://item.jd.com/12902248.html" target="_blank"><li style="background:url('/Public/uploads/index_pic/5fb4759a2465d.jpg') no-repeat center top; background-color:#FFFFFF;"></li></a>                                              <a href="https://item.jd.com/12250414.html" target="_blank"><li style="background:url('/Public/uploads/index_pic/5fb475f71e5dc.jpg') no-repeat center top; background-color:#FFFFFF;"></li></a>                                              <a href="https://www.mingrisoft.com/childrenarticle.html" target="_blank"><li style="background:url('/Public/uploads/index_pic/5fb475ce0704d.jpg') no-repeat center top; background-color:#FFFFFF;"></li></a>                                              <a href="https://resource.mingrisoft.com" target="_blank"><li style="background:url('/Public/uploads/index_pic/5fb4752fb325e.jpg') no-repeat center top; background-color:#FFFFFF;"></li></a>                                	 <!--开始-->
+                    <!--<div class="pop_one">
+                        <div class="book-rotaion-btn">
+                            <div class="pop_top"><a href="javascript:;"></a></div>
+                            <div class="pop_next"><a href="javascript:;"></a></div>
+                        </div>
+                    </div>-->
+                <!--结束-->
+            </ul>
+		</div>
+    </div>
+</div>
+</div>
+<!--首页轮播图结束-->
+		<!--四大板块开始-->
+	<!--<ul class="quick_box mar_1200" style="margin-top:25px;">
+		<li>
+			<a href="/Index/Index/freeToday.html">
+    			<img src="/Public/images/index_01.png">
+       		    <h1><img src="/Public/images/index_05.png"></h1>
+                <h2>收费练习限时免费，加油！</h2>
+        	</a>
+   		</li>
+		<li>
+        	<a href="/Index/Index/rankAchieve.html">
+    			<img src="/Public/images/index_02.png">
+        		<h1><img src="/Public/images/index_06.png"></h1>
+        		<h2>看前辈大牛的学分排行，<br />继续努力学习吧！</h2>
+         	</a>
+    	</li>
+		<li>
+        	<a href="/Index/Index/siegeBible.html">
+    			<img src="/Public/images/index_03.png">
+        		<h1><img src="/Public/images/index_07.png"></h1>
+        		<h2>优秀的编程图书书籍推荐！</h2>
+            </a>
+    	</li>
+		<li>
+        	<a href="/Index/Index/starTeacher.html">
+    			<img src="/Public/images/index_04.png">
+        		<h1><img src="/Public/images/index_08.png"></h1>
+        		<h2>平台优秀教师介绍及课程！</h2>
+             </a>
+    	</li>
+	</ul>-->
+<!--四大板块结束-->
+<div class="top_box">
+<div class="Course_left">
+<!--实战课程开始-->
+	<div class="PracticeCourse-all">
+    	<div class="PracticeCourse">
+			<div class="PracticeCourse-nav">
+				<div class="PracticeCourse-nav-title">
+					<img src="/Public/images/ico_01.png" width="24" height="19" alt="" />实战课程</div>
+				<div class="PracticeCourse-nav-more">
+					<div class="PracticeCourse-pop-up" id="szdescrib"> 从基础到精深，编程语言尽可掌握！</div>
+            		<a href="/Index/Video/practiceCourse.html">
+            			<div class="PracticeCourse-nav-txt">更多>></div>
+                		<!--<div class="PracticeCourse-nav-circle"></div>-->
+            		</a>
+				</div>
+			</div>
+			<div class="PracticeCourse-content">
+            <div class="PracticeCourse_ul">
+                  <div class="PracticeCourse-content-li">
+                        <div class="PracticeCourse-content-top"><a href="/video/4151.html" target="_blank"><img src="/Public/uploads/course_cover/5cf0df9f37b3b.jpg" width="284" height="163"/></a></div>
+                        <div class="PracticeCourse-content-bottom">
+                            <div class="item-change-txt">
+                                <div class="item-change-text"><a href="/video/4151.html" target="_blank">AI图像识别工具</a></div>
+                                <div class="item-change-txt-content"><p>AI图像识别工具</p></div>
+                            </div>
+                            <div class="PracticeCourse-content-bottom-type">
+                                <div class="img-practice-index">
+                                    <img src="/Public/images/bothcourse.png" width="30" height="17"/></div>
+                                <div class="name-practice w_add">Python<h></h>|<h></h>
+                                    项目                                </div>
+                                <div class="type-practice-pay">VIP</div>
+                                                            </div>
+                            <div class="PracticeCourse-content-time">
+                                <div class="PracticeCourse-time-image"><img src="/Public/images/clocktwo-icon.png" width="30" height="17"/></div>
+                                <div class="PracticeCourse-time-left">1小时30分18秒</div>
+                                <div class="PracticeCourse-time-right">2356人学习</div>
+                            </div>
+                        </div>
+                    </div><div class="PracticeCourse-content-li">
+                        <div class="PracticeCourse-content-top"><a href="/video/4158.html" target="_blank"><img src="/Public/uploads/course_cover/5cf0dfac7474c.jpg" width="284" height="163"/></a></div>
+                        <div class="PracticeCourse-content-bottom">
+                            <div class="item-change-txt">
+                                <div class="item-change-text"><a href="/video/4158.html" target="_blank">e起去旅行网站</a></div>
+                                <div class="item-change-txt-content"><p>e起去旅行网站</p></div>
+                            </div>
+                            <div class="PracticeCourse-content-bottom-type">
+                                <div class="img-practice-index">
+                                    <img src="/Public/images/bothcourse.png" width="30" height="17"/></div>
+                                <div class="name-practice w_add">Python<h></h>|<h></h>
+                                    项目                                </div>
+                                <div class="type-practice-pay">VIP</div>
+                                                            </div>
+                            <div class="PracticeCourse-content-time">
+                                <div class="PracticeCourse-time-image"><img src="/Public/images/clocktwo-icon.png" width="30" height="17"/></div>
+                                <div class="PracticeCourse-time-left">2小时2分8秒</div>
+                                <div class="PracticeCourse-time-right">1205人学习</div>
+                            </div>
+                        </div>
+                    </div><div class="PracticeCourse-content-li">
+                        <div class="PracticeCourse-content-top"><a href="/video/151.html" target="_blank"><img src="/Public/uploads/cover/58115a5342fed.jpg" width="284" height="163"/></a></div>
+                        <div class="PracticeCourse-content-bottom">
+                            <div class="item-change-txt">
+                                <div class="item-change-text"><a href="/video/151.html" target="_blank">画桃花游戏</a></div>
+                                <div class="item-change-txt-content"><p>画桃花游戏</p></div>
+                            </div>
+                            <div class="PracticeCourse-content-bottom-type">
+                                <div class="img-practice-index">
+                                    <img src="/Public/images/bothcourse.png" width="30" height="17"/></div>
+                                <div class="name-practice w_add">C#<h></h>|<h></h>
+                                    实例                                </div>
+                                                                   <div class="type-practice">免费</div>                            </div>
+                            <div class="PracticeCourse-content-time">
+                                <div class="PracticeCourse-time-image"><img src="/Public/images/clocktwo-icon.png" width="30" height="17"/></div>
+                                <div class="PracticeCourse-time-left">12分48秒</div>
+                                <div class="PracticeCourse-time-right">1742人学习</div>
+                            </div>
+                        </div>
+                    </div><div class="PracticeCourse-content-li">
+                        <div class="PracticeCourse-content-top"><a href="/video/1386.html" target="_blank"><img src="/Public/uploads/course_cover/598adace199d2.png" width="284" height="163"/></a></div>
+                        <div class="PracticeCourse-content-bottom">
+                            <div class="item-change-txt">
+                                <div class="item-change-text"><a href="/video/1386.html" target="_blank">51商城</a></div>
+                                <div class="item-change-txt-content"><p>51商城</p></div>
+                            </div>
+                            <div class="PracticeCourse-content-bottom-type">
+                                <div class="img-practice-index">
+                                    <img src="/Public/images/bothcourse.png" width="30" height="17"/></div>
+                                <div class="name-practice w_add">JavaWeb<h></h>|<h></h>
+                                    项目                                </div>
+                                                                   <div class="type-practice">免费</div>                            </div>
+                            <div class="PracticeCourse-content-time">
+                                <div class="PracticeCourse-time-image"><img src="/Public/images/clocktwo-icon.png" width="30" height="17"/></div>
+                                <div class="PracticeCourse-time-left">3小时24分</div>
+                                <div class="PracticeCourse-time-right">1607人学习</div>
+                            </div>
+                        </div>
+                    </div><div class="PracticeCourse-content-li">
+                        <div class="PracticeCourse-content-top"><a href="/video/2008.html" target="_blank"><img src="/Public/uploads/course_cover/59a75b5f8bd40.jpg" width="284" height="163"/></a></div>
+                        <div class="PracticeCourse-content-bottom">
+                            <div class="item-change-txt">
+                                <div class="item-change-text"><a href="/video/2008.html" target="_blank">会聊天的机器人</a></div>
+                                <div class="item-change-txt-content"><p>会聊天的机器人</p></div>
+                            </div>
+                            <div class="PracticeCourse-content-bottom-type">
+                                <div class="img-practice-index">
+                                    <img src="/Public/images/bothcourse.png" width="30" height="17"/></div>
+                                <div class="name-practice w_add">Android<h></h>|<h></h>
+                                    模块                                </div>
+                                                                   <div class="type-practice">免费</div>                            </div>
+                            <div class="PracticeCourse-content-time">
+                                <div class="PracticeCourse-time-image"><img src="/Public/images/clocktwo-icon.png" width="30" height="17"/></div>
+                                <div class="PracticeCourse-time-left">1小时1分36秒</div>
+                                <div class="PracticeCourse-time-right">308人学习</div>
+                            </div>
+                        </div>
+                    </div><div class="PracticeCourse-content-li">
+                        <div class="PracticeCourse-content-top"><a href="/video/2370.html" target="_blank"><img src="/Public/uploads/cover/5a0bf7ffbca33.jpg" width="284" height="163"/></a></div>
+                        <div class="PracticeCourse-content-bottom">
+                            <div class="item-change-txt">
+                                <div class="item-change-text"><a href="/video/2370.html" target="_blank">迷宫</a></div>
+                                <div class="item-change-txt-content"><p>迷宫</p></div>
+                            </div>
+                            <div class="PracticeCourse-content-bottom-type">
+                                <div class="img-practice-index">
+                                    <img src="/Public/images/bothcourse.png" width="30" height="17"/></div>
+                                <div class="name-practice w_add">C语言<h></h>|<h></h>
+                                    实例                                </div>
+                                                                   <div class="type-practice">免费</div>                            </div>
+                            <div class="PracticeCourse-content-time">
+                                <div class="PracticeCourse-time-image"><img src="/Public/images/clocktwo-icon.png" width="30" height="17"/></div>
+                                <div class="PracticeCourse-time-left">11分8秒</div>
+                                <div class="PracticeCourse-time-right">795人学习</div>
+                            </div>
+                        </div>
+                    </div>            </div>
+		  </div>
+		</div>
+    </div>
+<!--实战课程结束-->
+<!--体系课程开始-->
+	<div class="system-all">
+		<div class="PracticeCourse">
+			<div class="PracticeCourse-nav">
+				<div class="PracticeCourse-nav-title">
+					<img src="/Public/images/ico_02.png" width="24" height="19" alt="" />体系课程</div>
+				<div class="PracticeCourse-nav-more">
+					<div class="PracticeCourse-pop-up" id="sysdescrib">1.5万个项目资源，2.8万个实例模块，3.2万个实例</div>
+                    	<a href="/Index/Course/systemCourse.html">
+							<div class="PracticeCourse-nav-txt">更多>></div>
+                   		</a>
+				   </div>
+			</div>
+			<div class="systemCourse-content" style="margin-top:0px;">
+              <!--开始-->
+              	<div class="Home-system">
+                	<!--左侧开始-->
+						<div class="Home-system-1">
+                        <a href="/systemCatalog/64.html" target="_blank">
+							<i><img src="/Public/uploads/indexsyscourse/5750de4bdc4ca.png" alt="Java入门第一季"/></i>
+							<span>Java入门第一季</span>
+                        </a>
+						</div>
+                    <!--左侧结束-->
+                    <!--右侧开始-->
+                    	<div class="Home-system-right">
+							<!--上开始-->
+								<div class="Home-system-top">
+                                 <div class="Home-system-2">
+                                    	<a href="/systemCatalog/19.html" target="_blank">
+										<i><img src="/Public/uploads/indexsyscourse/5b3745b4c612c.png" alt="C#入门第一季"/></i>
+										<span style="margin-top:20px;">C#入门第一季</span>
+                                        </a>
+									</div><div class="Home-system-3">
+                                    	<a href="/systemCatalog/27.html" target="_blank">
+										<i><img src="/Public/uploads/indexsyscourse/5b3745c4d3ab2.png" alt="Oracle入门第一季"/></i>
+										<span style="margin-top:20px;">Oracle入门第一季</span>
+                                        </a>
+									</div><div class="Home-system-4">
+                                    	<a href="/systemCatalog/219.html" target="_blank">
+										<i><img src="/Public/uploads/indexsyscourse/5c89b99955e33.png" alt="Python入门第一季"/></i>
+										<span style="margin-top:20px;">Python入门第一季</span>
+                                        </a>
+									</div><div class="Home-system-5">
+                                    	<a href="/systemCatalog/21.html" target="_blank">
+										<i><img src="/Public/uploads/indexsyscourse/5b3745d2132bb.png" alt="C++入门第一季"/></i>
+										<span style="margin-top:20px;">C++入门第一季</span>
+                                        </a>
+									</div><div class="Home-system-6">
+                                    	<a href="/systemCatalog/76.html" target="_blank">
+										<i><img src="/Public/uploads/indexsyscourse/5a265a97b19e8.png" alt="Android入门第一季"/></i>
+										<span style="margin-top:20px;">Android入门第一季</span>
+                                        </a>
+									</div>								</div>
+							<!--上结束-->
+							<!--下开始-->
+							<div class="Home-system-bottom">
+                               <div class="Home-system-6">
+                                    	<a href="/systemCatalog/76.html" target="_blank">
+										<i><img src="/Public/uploads/indexsyscourse/5a265a97b19e8.png" alt="Android入门第一季"/></i>
+										<span style="margin-top:20px;">Android入门第一季</span>
+                                        </a>
+									</div><div class="Home-system-7">
+                                    	<a href="/systemCatalog/211.html" target="_blank">
+										<i><img src="/Public/uploads/indexsyscourse/5750dfc9f3ba9.png" alt="PHP入门第一季"/></i>
+										<span style="margin-top:20px;">PHP入门第一季</span>
+                                        </a>
+									</div><div class="Home-system-8">
+                                    	<a href="/systemCatalog/26.html" target="_blank">
+										<i><img src="/Public/uploads/indexsyscourse/5a265aa3f3b95.png" alt="JavaScript入门第一季"/></i>
+										<span style="margin-top:20px;">JavaScript入门第一季</span>
+                                        </a>
+									</div>								
+							</div>
+							<!--下结束-->
+                        </div>
+                    <!--右侧结束-->
+                </div>
+              <!--结束-->
+			</div>
+		</div>
+	</div>
+<!--体系课程结束-->
+</div>
+<!--数字书开始-->
+	<div class="book_right">
+    	<div class="book_nav">
+            <img src="/Public/images/icon_book.png" alt="数字书" />数字书
+            <a href="/Book/digitalBook.html">更多>></a>
+        </div>
+        <ul>
+        	<li>
+            	<div class="img"><a href="/ebook/595.html"><img src="/Public/uploads/book_cover/5fb38bdc7a648.jpg"/></a></div>
+                <div class="name"><a href="/ebook/595.html">Python GUI设计PyQt5从入门到实践</a></div>
+                <div class="price"><em>￥</em>29.80<a href="/ebook/595.html">数字书</a></div>
+              </li><li>
+            	<div class="img"><a href="/ebook/560.html"><img src="/Public/uploads/book_cover/5fb8c0e855d5e.png"/></a></div>
+                <div class="name"><a href="/ebook/560.html">Python项目开发实战入门</a></div>
+                <div class="price"><em>￥</em>29.00<a href="/ebook/560.html">数字书</a></div>
+              </li><li>
+            	<div class="img"><a href="/ebook/552.html"><img src="/Public/uploads/book_cover/5fb4770a0f87d.png"/></a></div>
+                <div class="name"><a href="/ebook/552.html">Python编程锦囊</a></div>
+                <div class="price"><em>￥</em>30.00<a href="/ebook/552.html">数字书</a></div>
+              </li><li>
+            	<div class="img"><a href="/ebook/590.html"><img src="/Public/uploads/book_cover/5fb3887162bf1.png"/></a></div>
+                <div class="name"><a href="/ebook/590.html">Python编程超级魔卡</a></div>
+                <div class="price"><em>￥</em>29.80<a href="/ebook/590.html">数字书</a></div>
+              </li>        </ul>
+    </div>
+<!--数字书结束-->
+</div>
+<!--发现课程+最新实战开始-->
+	<div class="system-all">
+    	<div class="course-content-center-left" style="float:left; height:auto;">
+        	<div class="popular-courses">
+				<div class="popular-courses-panel"> 
+					<div class="popular-top">
+						<div class="popular-courses-like-set"> 
+							<img src="/Public/images/ico_03.png" width="24" height="19" alt="" />我的偏好设置</div>
+					</div>
+					<div class="popular-courses-nav">
+						<div class="popular-courses-like-write">为您推荐的标签:</div>
+						<div class="popular-courses-like-write-ul">
+							<div class="popular-courses-like-write-li"><a href="javascript:;" onclick=getVideo("1","/Index/Index/getHotVideo.html",this.id) id="r_1" >Java</a></div><div class="popular-courses-like-write-li"><a href="javascript:;" onclick=getVideo("11","/Index/Index/getHotVideo.html",this.id) id="r_11" >Android</a></div><div class="popular-courses-like-write-li"><a href="javascript:;" onclick=getVideo("43","/Index/Index/getHotVideo.html",this.id) id="r_43" >JavaWeb</a></div><div class="popular-courses-like-write-li"><a href="javascript:;" onclick=getVideo("38","/Index/Index/getHotVideo.html",this.id) id="r_38" >PHP</a></div><div class="popular-courses-like-write-li"><a href="javascript:;" onclick=getVideo("4","/Index/Index/getHotVideo.html",this.id) id="r_4" >C#</a></div><div class="popular-courses-like-write-li"><a href="javascript:;" onclick=getVideo("3","/Index/Index/getHotVideo.html",this.id) id="r_3" >C++</a></div><div class="popular-courses-like-write-li"><a href="javascript:;" onclick=getVideo("44","/Index/Index/getHotVideo.html",this.id) id="r_44" >JSP</a></div><div class="popular-courses-like-write-li"><a href="javascript:;" onclick=getVideo("10","/Index/Index/getHotVideo.html",this.id) id="r_10" >Oracle</a></div><div class="popular-courses-like-write-li"><a href="javascript:;" onclick=getVideo("12","/Index/Index/getHotVideo.html",this.id) id="r_12" >C语言</a></div><div class="popular-courses-like-write-li"><a href="javascript:;" onclick=getVideo("49","/Index/Index/getHotVideo.html",this.id) id="r_49" >Python</a></div><div class="popular-courses-like-write-li"><a href="javascript:;" onclick=getVideo("9","/Index/Index/getHotVideo.html",this.id) id="r_9" >JavaScript</a></div><div class="popular-courses-like-write-li"><a href="javascript:;" onclick=getVideo("39","/Index/Index/getHotVideo.html",this.id) id="r_39" >ASP.NET</a></div><div class="popular-courses-like-write-li"><a href="javascript:;" onclick=getVideo("41","/Index/Index/getHotVideo.html",this.id) id="r_41" >VB</a></div>						</div>
+					</div>
+				</div>
+				<div class="popular-courses-top">
+					<div class="popular-courses-top-left">
+						<img src="/Public/images/ico_03.png" width="24" height="19" alt="" />发现课程</div>
+					<div class="popular-courses-top-right">
+						<!--<a href="/selfcourse.html" target="_blank"><img src="/Public/images/newest-more.png" width="40" height="20" alt="" /></a>-->
+						<div class="popular-courses-top-made">
+							<a href="javascript:;" onclick="javascript:this.innerHTML=(this.innerHTML=='选择我的偏好'?'返回发现课程':'选择我的偏好');">选择我的偏好</a>
+						</div>
+					</div>
+				</div>
+				<div id="hot_video">
+											<div class="popular-courses-bottom">
+							<div class="popular-courses-bottom-li">
+								<div class="popular-courses-bottom-li-content">  
+									<div class="popular-courses-bottom-content">
+										<div class="popular-courses-bottom-image"><a href="/video/425.html" target="_blank"><img src="/Public/uploads/cover/5811596ecb458.jpg" width="285" height="166" alt="" /></a></div>
+										<div class="popular-courses-bottom-txt">
+											<div class="popular-courses-bottom-title">
+												<a href="/video/425.html" target="_blank">三天打鱼两天晒网</a>
+											</div>
+                                            <div class="popular-courses-bottom-write">
+												<p>三天打鱼两天晒网</p>
+                                            </div>
+										</div>
+									</div>
+								</div>
+							</div> 
+						</div>						<div class="popular-courses-bottom">
+							<div class="popular-courses-bottom-li">
+								<div class="popular-courses-bottom-li-content">  
+									<div class="popular-courses-bottom-content">
+										<div class="popular-courses-bottom-image"><a href="/video/340.html" target="_blank"><img src="/Public/uploads/cover/58115b7e54107.jpg" width="285" height="166" alt="" /></a></div>
+										<div class="popular-courses-bottom-txt">
+											<div class="popular-courses-bottom-title">
+												<a href="/video/340.html" target="_blank">编写一个考试的小程序</a>
+											</div>
+                                            <div class="popular-courses-bottom-write">
+												<p>编写一个考试的小程序</p>
+                                            </div>
+										</div>
+									</div>
+								</div>
+							</div> 
+						</div>						<div class="popular-courses-bottom">
+							<div class="popular-courses-bottom-li">
+								<div class="popular-courses-bottom-li-content">  
+									<div class="popular-courses-bottom-content">
+										<div class="popular-courses-bottom-image"><a href="/video/961.html" target="_blank"><img src="/Public/uploads/cover/583e7140c88ab.jpg" width="285" height="166" alt="" /></a></div>
+										<div class="popular-courses-bottom-txt">
+											<div class="popular-courses-bottom-title">
+												<a href="/video/961.html" target="_blank">第1讲 酒店管理系统-概述</a>
+											</div>
+                                            <div class="popular-courses-bottom-write">
+												<p>     本节课将带领用户实现一个酒店管理系统。系统涵盖多个功能模块，主要有开台点菜、智能化获取菜品、自动结账，菜系管理、日月年记账报表。涉及的知识点主要有Swing鼠标或键盘事件的使用方法、正则表达式的使用。 本系统功能齐全，能够满足客户的需求。对于学者，能够进一步提高实战能力，扩大知识面。</p>
+                                            </div>
+										</div>
+									</div>
+								</div>
+							</div> 
+						</div>				</div>
+			</div>
+    	</div>
+        <!--右侧开始-->
+    	<div class="course-content-center-right">
+			<div class="newest-dynamic">
+				<div class="newest-dynamic-top">
+					<div class="newest-dynamic-top-left"><img src="/Public/images/ico_04.png" width="24" height="22" alt="" />最新课程</div>
+					<div class="newest-dynamic-top-right">
+						<!--<a href="#"><img src="/Public/images/newest-more.png" width="40" height="20" alt="" /></a>-->
+					</div>
+				</div>
+				<div class="newest-dynamic-bottom">
+					<!--添加开始-->
+                    <div class="newest-dynamic-bottom-li">
+							<div class="newest-dynamic-number newest-number"  style="background-color:#ff5a47;">1</div>
+							<div class="newest-dynamic-txt"><a href="/video/4190.html" target="_blank">第13讲 其他功能</a></div>
+						</div><div class="newest-dynamic-bottom-li">
+							<div class="newest-dynamic-number newest-number"  style="background-color:#faab43;">2</div>
+							<div class="newest-dynamic-txt"><a href="/video/4189.html" target="_blank">第12讲 关注商品图表分析</a></div>
+						</div><div class="newest-dynamic-bottom-li">
+							<div class="newest-dynamic-number newest-number"  style="background-color:#0099ff;">3</div>
+							<div class="newest-dynamic-txt"><a href="/video/4188.html" target="_blank">第11讲 商品营销预警</a></div>
+						</div><div class="newest-dynamic-bottom-li">
+							<div class="newest-dynamic-number newest-number"  >4</div>
+							<div class="newest-dynamic-txt"><a href="/video/4187.html" target="_blank">第10讲 关注商品</a></div>
+						</div><div class="newest-dynamic-bottom-li">
+							<div class="newest-dynamic-number newest-number"  >5</div>
+							<div class="newest-dynamic-txt"><a href="/video/4186.html" target="_blank">第9讲 商品排行展示</a></div>
+						</div><div class="newest-dynamic-bottom-li">
+							<div class="newest-dynamic-number newest-number"  >6</div>
+							<div class="newest-dynamic-txt"><a href="/video/4185.html" target="_blank">第8讲 图表分析数据</a></div>
+						</div><div class="newest-dynamic-bottom-li">
+							<div class="newest-dynamic-number newest-number"  >7</div>
+							<div class="newest-dynamic-txt"><a href="/video/4184.html" target="_blank">第7讲 批量写入数据库</a></div>
+						</div><div class="newest-dynamic-bottom-li">
+							<div class="newest-dynamic-number newest-number"  >8</div>
+							<div class="newest-dynamic-txt"><a href="/video/4183.html" target="_blank">第6讲 爬取评价信息</a></div>
+						</div>                    <!--添加结束-->
+				</div>
+			</div>
+    	</div>
+    </div>
+<!--发现课程+最新实战结束-->
+
+<!--四大板块开始-->
+	<ul class="quick_box mar_1200" style="margin-top:25px;">
+		<li>
+			<a href="/Index/Index/freeToday.html" target="_blank">
+    			<img src="/Public/images/index_01.png">
+       		    <h1><img src="/Public/images/index_05.png"></h1>
+                <h2>收费练习限时免费，加油！</h2>
+        	</a>
+   		</li>
+		<li>
+        	<a href="/Index/Index/rankAchieve.html" target="_blank">
+    			<img src="/Public/images/index_02.png">
+        		<h1><img src="/Public/images/index_06.png"></h1>
+        		<h2>看前辈大牛的学分排行，<br />继续努力学习吧！</h2>
+         	</a>
+    	</li>
+		<li>
+        	<a href="/Index/Index/siegeBible.html" target="_blank">
+    			<img src="/Public/images/index_03.png">
+        		<h1><img src="/Public/images/index_07.png"></h1>
+        		<h2>优秀的编程图书书籍推荐！</h2>
+            </a>
+    	</li>
+    <!--    <li>
+        	<a href="/Vote/index.html" target="_blank">
+    			<img src="/Public/images/v_new.png">
+        		<h1><img src="/Public/images/v_small.png"></h1>
+        		<h2>赢取你的专属实例书！</h2>
+            </a>
+    	</li>-->
+		<li>
+        	<a href="/Index/Index/starTeacher.html" target="_blank">
+    			<img src="/Public/images/index_04.png">
+        		<h1><img src="/Public/images/index_08.png"></h1>
+        		<h2>平台优秀教师介绍及课程！</h2>
+             </a>
+    	</li>
+	</ul>
+<!--四大板块结束-->
+<!--底部开始-->
+<div class="system-all">
+<div class="course-content-center-left">
+<div class="more-attention">
+    <div class="more-attention-top">
+   		<i></i><p>专注编程教育二十年</p><i></i>
+    </div>
+    <div class="more-attention-write">
+        <div class="more-attention-write-content">
+           
+            <div class="more-attention-write-right">明日科技——专注编程教育。先后与清华大学出版社、人民邮电出版社、电子工业出版社、机械工业出版社合作，出版图书数百套，编写高等学院教材十余套，累计影响用户逾百万。图书销量率屡创辉煌！</div>
+        </div>
+
+    </div>
+<div class="more-attention-user">
+  <div class="index-box">
+    <div class="mr_frbox">
+        <img class="mr_frBtnL prev" src="/Public/images/btn_l.png" width="45" height="50" alt="" />
+        <div class="mr_frUl">
+            <ul id="mr_fu">
+                <li>
+                    <img src="/Public/images/Tsinghua-press.png" width="220" height="128">          
+                </li>
+                <li>
+                    <img src="/Public/images/posts-press.png" width="220" height="128">          
+                </li>
+                <li>
+                    <img src="/Public/images/Industry-press.png" width="220" height="128">         
+                </li>
+                 <li>
+                    <img src="/Public/images/MAchine-press.png" width="220" height="128">           
+                </li>
+                <li>
+                    <img src="/Public/images/Java-book.png" width="220" height="128">           
+                </li>
+                 <li>
+                    <img src="/Public/images/C-book.png" width="220" height="128">                
+                </li>
+                <li>
+                    <img src="/Public/images/C-bc-book.png" width="220" height="128">               
+                </li>
+                <li>
+                    <img src="/Public/images/e-learning.png" width="220" height="128">               
+                </li>
+            </ul>
+        </div>
+        <img class="mr_frBtnR next" src="/Public/images/btn_r.png" width="45" height="45" alt="" />
+    </div>
+   </div>
+</div>
+<script type="text/javascript">$(document).ready(function(){$(".mr_frbox").slide({titCell:"",mainCell:".mr_frUl ul",autoPage:!0,effect:"leftLoop",autoPlay:!0,vis:4})});</script>  
+    <div class="more-last-three">
+        <div class="more-last-three-li">
+         <div class="more-last-three-li-right-top"><a href="#">专注编程</a> </div>
+            <div class="more-last-three-li-left"><img src="/Public/images/people-attention.png" width="85" height="74" alt="" /></div>
+            <div class="more-last-three-li-right">
+             	 <div class="more-last-three-li-right-bottom">专业用户，专注编程<br />提高能力，经验分享</div>
+            </div>
+        </div>
+        <div class="more-last-three-li">
+        <div class="more-last-three-li-right-top"><a href="#">成长自己成就他人</a> </div>
+            <div class="more-last-three-li-left"><img src="/Public/images/iphone-attention.png" width="85" height="74" alt="" /></div>
+            <div class="more-last-three-li-right">               
+                <div class="more-last-three-li-right-bottom">不断学习、成长自己<br />授人以渔、助人成长</div>
+            </div>
+        </div>
+        <div class="more-last-three-li">
+          <div class="more-last-three-li-right-top"><a href="#">有偿分享优先购买</a> </div>
+            <div class="more-last-three-li-left"><img src="/Public/images/book-attention.png" width="85" height="74" alt="" /></div>
+            <div class="more-last-three-li-right">              
+                <div class="more-last-three-li-right-bottom">百万资金虚位以待<br />只为优秀的作品</div>
+            </div>
+        </div>
+    </div>
+  <div class="start-study">
+    <div class="start-study-button"><a href="https://passport.mingrisoft.com/login/regist.html?tpl=sch" target="_blank">立即注册</a></div>
+  </div>    <!--记录网站访客数 -->
+<!--<span class="vistor_txt">
+    您是网站第<span class="vistor_number"></span>位访客
+</span>-->
+
+</div>
+</div>
+</div>
+<!--底部结束-->
+<!--同步提示开始-->
+ <div id="point_all">
+    <div class="point_bg" >
+    	<div class="point_vci">
+        	<div class="point_content">
+            	<div class="point_top">
+                	<div class="point_title">
+                    	手机同步功能介绍
+                    	<a href="javascript:"><span class="point_close" id="p_close"></span></a>
+                    </div>
+                	<img src="/Public/images/point_1.png"/>
+                </div>
+                <div class="point_bottom">
+                	<div class="point_nav">友情提示：以下图书配套资源能够实现手机同步功能</div>
+                    <ul>
+                    	<li><a href="/Book/bookDetails/id/443.html"><img src="/Public/images/p_java.png" alt="" /></a></li>
+                        <li><a href="/Book/bookDetails/id/449.html"><img src="/Public/images/p_android.png" alt="" /></a></li>
+                        <li><a href="/Book/bookDetails/id/455.html"><img src="/Public/images/p_c.png" alt="" /></a></li>
+                        <li><a href="/Book/bookDetails/id/451.html"><img src="/Public/images/p_cl.png" alt="" /></a></li>
+                        <li><a href="/Book/bookDetails/id/454.html"><img src="/Public/images/p_php.png" alt="" /></a></li>
+                        <li><a href="/Book/bookDetails/id/452.html"><img src="/Public/images/p_jw.png" alt="" /></a></li>
+                        <li><a href="/Book/bookDetails/id/450.html"><img src="/Public/images/p_c2.png" alt="" /></a></li>
+                        <li><a href="/Book/bookDetails/id/453.html"><img src="/Public/images/p_jsp.png" alt="" /></a></li>
+                        <!--<li><a href="javascript:"><img src="/Public/images/p_vb.png" alt="" /></a></li>
+                        <li><a href="javascript:"><img src="/Public/images/p_an.png" alt="" /></a></li>-->
+                    </ul>
+                    <div class="point_know" id="iknow" style="display:none;"><a href="javascript:">我知道了</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
+<!--同步提示结束-->
+<div id="tbox">
+    <div class="phone_other">
+    	         <a href="javascript:" id="phone_time" class="mobilePic"></a>		        <a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzkzODA3NzAwNl80NDYzMDVfNDAwNjc1MTA2Nl8yXw" id="pinglun" target="_blank"></a>
+        <a href="/Index/ServiceCenter/feedback.html" target="_blank" id="xiangguan"></a>
+        <a id="gotop" href="javascript:;"></a>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function(){
+	   if($("#mess_block").length > 0){
+	      $("#tbox").css("margin-bottom",$("#mess_block").height()+"px");
+	   }
+	   $("#p_close").click(function(){			
+			if($("#iknow").is(":visible")){
+			   location.href = $("#iknow").find("a").attr("href");
+			}
+			$("#point_all").hide();
+	   });
+	   $('.mobilePic').click(function(){
+	       $(this).attr("id","phone_time");
+	       $.get("/Index/Ajax/getMobileSaveUrl.html",function(data){
+				if(data == -1){
+					layer.msg("请您先登录！",{time:1000},function(){
+						window.location.href = "https://passport.mingrisoft.com/login.html?tpl=sch";
+					});
+				}else if(data == -2){
+					layer.msg("您的账号已在其他地点登录！",{time:1000},function(){
+						window.location.href = "https://passport.mingrisoft.com/login.html?tpl=sch";
+					});
+				}else{ 
+					if(data.status){ 
+					    location.href = "/Index/Index/SyncGuide.html";
+						/*$("#point_all").show();
+						if(data.msg != ''){
+						   $("#iknow").find("a").attr("href",data.msg);
+						   $("#iknow").show();
+						}*/
+					}else{
+						location.href = data.msg;
+					}
+				}
+		   })
+	   });
+	});
+</script>
+<style type="text/css">dl{ margin-right:45px;}</style>
+<script type="text/javascript">
+$(document).ready(function(){
+  $("#friend").click(function(){
+  $("#code").show();
+  });
+  $("#h_close").click(function(){
+  $("#code").hide();
+  });
+  $('#close_star').click(function () {
+	  $('#star_certificate').hide();
+  });
+});
+</script>
+
+
+
+<div class="bottom-page-last-a">
+</div>
+<!--改开始-->
+	<div class="bottom-page">
+		<div class="bottom-page-in">
+        	<!--学习群二维码开始-->
+            	<div class="code_news">
+                	<img src="/Public/images/code_news.jpg" width="114" height="116" alt="" />
+                    <span>明日微信公众号</span>
+                </div>
+            <!--学习群二维码结束-->
+			<!--第一部分开始-->
+			<div class="bottom-content">
+				<div class="bottom-service">
+					<div class="bottom-service-img">
+						<img src="/Public/images/phoneIcon.png" width="28" height="28" alt="" />
+					</div>
+				<div class="bottom-service-txt">客服热线(每日9:00-17:00)</div>
+				</div>
+				<div class="bottom-service-phone">400 675 1066</div>
+				<div class="bottom-service-icon" style=" height:40px; padding-left:10px; margin-top:5px;">
+					<div class="bottom-service-icon-li" style="border-radius:50%;">
+						<a href="http://weibo.com/5897586383/profile?topnav=1&wvr=6"  target="_blank"> 
+							<img src="/Public/images/b-wbIcon.png" width="41" height="48" alt="" />
+						</a>
+					</div>
+					<div class="weixin" onmouseover="this.className = 'weixin on';" onmouseout="this.className = 'weixin';">
+						<a href="javascript:;" style="cursor:default;">
+							<img src="/Public/images/wxIcon.png" width="41" height="48" alt="" />
+						</a>
+						<div class="weixin_nr">
+							<img src="/Public/images/wx-bottom.png" width="120" height="129" alt="" style="margin-top:10px;"/>
+						</div>
+					</div>
+				   <div class="bottom-service-icon-li bottom_email" style="margin-right:13px;" >
+						<img src="/Public/images/newIcon.png" width="41" height="48" alt="" />
+						<div class="bottom_email_text">mingrisoft@mingrisoft.com</div>
+					</div>
+					<div class="mail_bottom" onmouseover="this.className = 'mail_bottom on';" onmouseout="this.className = 'mail_bottom';" style="display:none;">
+						<a href="javascript:;" style="cursor:default;">
+							<img src="/Public/images/phone-sicon.png" width="41" height="48" alt="" />
+						</a>
+						<div class="mail_bottom_nr">
+							<img src="/Public/images/wx-bottom.png" width="120" height="129" alt="" style="margin-top:10px;"/>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--第一部分结束-->
+			<!--第二部分开始-->
+			<div id="footer_d">
+				<dl>
+					<dt>新手指南</dt>
+					<!--<dd><a href="/selfcourse.html">课程学习</a> </dd>-->
+					<dd><a href="/bbs.html">技术问答</a> </dd>
+					<dd><a href="/Index/ServiceCenter/credits.html">学分获得</a> </dd>
+					<!--<dd><a href="#">社区讨论</a></dd>
+					<dd><a href="#">资源下载</a></dd>-->
+				</dl>
+				<dl>
+					<dt>帮助中心</dt>
+					<!--<dd><a href="#">技术问答</a></dd>
+					<dd><a href="#">交费方式</a></dd>-->
+					<dd><a href="/Index/ServiceCenter/vip.html">VIP权益</a></dd>
+					<dd><a href="/Index/ServiceCenter/course_need.html">课程需求</a></dd>
+					<dd>
+												   <a href="/myVip/flag/free.html">免费VIP</a>					</dd>           
+				</dl>
+				<dl>
+					<dt>交流合作</dt>
+					<dd><a href="/Index/ServiceCenter/aboutus.html">关于我们</a></dd>
+					<dd><a href="/Index/ServiceCenter/recruitment.html">人才招聘</a></dd>
+					<!--<dd><a href="/Index/ServiceCenter/contactus.html">联系我们</a></dd>-->
+					<dd><a href="/Index/ServiceCenter/feedback.html">意见反馈</a></dd>
+					<!--<dd><a href="#">友情链接</a></dd>-->
+			   </dl>
+			   <dl>
+					<dt>其他</dt>
+					<!--<dd><a href="#">人工服务</a></dd>
+					<dd><a href="#">课程需求</a></dd>-->
+					<dd><a href="/Index/ServiceCenter/copyright.html">版权声明</a></dd>
+					<dd><a href="/Index/ServiceCenter/term.html">服务条款</a></dd>
+					<dd><a href="http://test.mingrisoft.com/download.php">下载APP</a></dd>
+			  </dl> 
+			</div>
+			<!--第二部分结束-->
+		</div>
+        <div class="bottom-page-last">
+			吉林省明日科技有限公司<h></h>Copyright &copy;2007-2020,  mingrisoft.com, All Rights Reserved <h></h>吉ICP备10002740号-2 <h></h>地址：长春市北湖科技开发区盛北大街3333号北湖科技园项目一期A10号楼<h></h>吉公网安备22010202000132		</div>
+	</div>
+<!--改结束-->
+</div>
+</body>
+</html>
