@@ -31,7 +31,7 @@ user_agent_list = [ \
     "Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1062.0 Safari/536.3", \
     "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1062.0 Safari/536.3", \
     "Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1061.1 Safari/536.3", \
-    ": Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36", \
+    "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.108 Safari/537.36", \
     "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1061.1 Safari/536.3", \
     "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1061.1 Safari/536.3", \
     "Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1061.0 Safari/536.3", \
@@ -68,9 +68,12 @@ def sendmail(result):
         smtpserver = 'smtp.163.com'
         username = "yx1274814498@163.com"
         password = "SBMMBSAHCMPDUOWC"
+        smtpHost = 'smtp.163.com'
+        smtpPort = '25'
+        sslPort = '465'
 
         msgRoot = MIMEMultipart('related')
-        msgRoot['Subject'] = 'test message'
+        msgRoot['Subject'] = '闰京的 message'
 
         msgText = MIMEText(result+'<br><img src="cid:image1"><br>', 'html', 'utf-8')
         msgRoot.attach(msgText)
@@ -83,7 +86,9 @@ def sendmail(result):
         msgRoot.attach(msgImage)
 
         smtp = smtplib.SMTP()
-        smtp.connect('smtp.163.com')
+        # smtp.connect('smtp.163.com')
+        smtp = smtplib.SMTP_SSL(smtpHost, sslPort)
+        smtp.ehlo()
         smtp.login(username, password)
         smtp.sendmail(sender, receiver, msgRoot.as_string())
         print('发送成功')
@@ -137,10 +142,11 @@ def  getlist2(url):
         f.write(requests.get(url, headers=header, timeout=10).content)
 
 if __name__ == "__main__":
-    schedule.every().day.at("08:07").do(getlist1)
+    schedule.every().day.at("18:25").do(getlist1)
     # schedule.every(5).seconds.do(getlist1)
     url = 'http://www.weather.com.cn/weather/101280201.shtml'
-    schedule.every().day.at("08:08").do(getlist,url)
+    # schedule.every().day.at("18:26").do(getlist,url)
+    schedule.every(1).minutes.do(getlist,url)
     while True:
         schedule.run_pending()
         time.sleep(1)
