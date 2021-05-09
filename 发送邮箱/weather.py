@@ -9,6 +9,7 @@ from requests.exceptions import ReadTimeout,HTTPError,RequestException
 import re
 import random
 import smtplib
+from email.header import Header
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
@@ -63,19 +64,18 @@ def getlist(url):
 
 def sendmail(result):
         sender = "yx1274814498@163.com"  # 发送方地址
-        receiver = ['yx1274814498@163.com','1274814498@qq.com','1506262492@qq.com','1593809016@qq.com']  # "1274814498@qq.com,770031105@qq.com,yx1274814498@163.com"
+        receivers = ['yx1274814498@163.com','1274814498@qq.com','1506262492@qq.com','1593809016@qq.com']  # "1274814498@qq.com,770031105@qq.com,yx1274814498@163.com"
         subject = 'python email '
-        smtpserver = 'smtp.163.com'
         username = "yx1274814498@163.com"
         password = "SBMMBSAHCMPDUOWC"
-        smtpHost = 'smtp.163.com'
-        smtpPort = '25'
-        sslPort = '465'
 
         msgRoot = MIMEMultipart('related')
         msgRoot['Subject'] = '闰京的 message'
 
         msgText = MIMEText(result+'<br><img src="cid:image1"><br>', 'html', 'utf-8')
+        msgText['From'] = "yx1274814498@163.com"
+        msgText['To'] = '1274814498@qq.com'
+        msgText['Subject'] = Header('1274814498@qq.com示例代码实验邮件', 'utf-8')
         msgRoot.attach(msgText)
 
         fp = open(r'img.jpg', 'rb')
@@ -85,12 +85,12 @@ def sendmail(result):
         msgImage.add_header('Content-ID', '<image1>')
         msgRoot.attach(msgImage)
 
-        smtp = smtplib.SMTP()
-        # smtp.connect('smtp.163.com')
-        smtp = smtplib.SMTP_SSL(smtpHost, sslPort)
+        # smtp = smtplib.SMTP()
+        smtp = smtplib.SMTP_SSL()
+        smtp = smtplib.SMTP_SSL('smtp.163.com', 465)
         smtp.ehlo()
         smtp.login(username, password)
-        smtp.sendmail(sender, receiver, msgRoot.as_string())
+        smtp.sendmail(sender, receivers, msgRoot.as_string())
         print('发送成功')
         smtp.quit()
 
