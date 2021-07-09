@@ -5,6 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/解析python/scrapy1/myspider" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/解析python/scrapy1/spider" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/解析python/scrapy1/Itcast" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/agency" />
       <excludeFolder url="file://$MODULE_DIR$/demo/demo" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.8" jdkType="Python SDK" />

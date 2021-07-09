@@ -1,12 +1,10 @@
 # -*-coding:  UTF-8
-# @Time    :  2021/5/23 11:16
+# @Time    :  2021/5/23 9:03
 # @Author  :  Cooper
-# @FileName:  通过操作方法进行解读和搜索.py
+# @FileName:  构建bs4对象.py
 # @Software:  PyCharm
 from bs4 import BeautifulSoup
-import re
 
-#  准备数据
 html = '''
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -35,8 +33,6 @@ html = '''
 
 
 <title>Path 节点</title>
-<title>Path 节点dfghksjdhfg</title>
-<titl>Path 节点dfghk该开关花费的dhfg</titl>
 <titl><!-- gfkhudfk富贵花开的积分工会看见的还是法国sdjrgdfjg --></titl>
 </head>
 
@@ -300,55 +296,21 @@ W3School 简体中文版提供的内容仅用于培训和测试，不保证内�
 </div>
 </body>
 </html>'''
-bs = BeautifulSoup(html, 'lxml')
-
-'''    
-def find_all(self, name=None, attrs={}, recursive=True, text=None,
-                 limit=None, **kwargs):
-name参数：查找所有名字为name的标签，不过字符串会被自动忽略掉。可以传入标签名，正则，列表，字符串
-soup.find_all('b')
-for tag in soup.find_all(re.compile("^b")):
-    print(tag.name)
-soup.find_all(["a", "b"])
-
-kwargs 根据属性进行查找，命名参数
-attrs 根据属性进行查找，参数字典
-text 根据文本进行查找,可以传入正则、字符串、列表
-limit 用于限制最多查找几个
-recursive 是否要递归查找 默认是true 如果为false只能查找直接子标签
-'''
 bs = BeautifulSoup(html.encode('utf-8'), 'lxml')
 print(bs)
-result = bs.find_all('link')
-print(result)
-for tag in bs.find_all(re.compile("^l")):
-    print(tag.name)
-print(bs.findAll(['link', 'li']))
-# kwargs 根据属性进行查找，命名参数.直接传入属性值 class 是关键字不能直接写
-result=bs.find_all(type=re.compile('css'))
-print(result)
-result=bs.find_all(rel="icon" )
-print(result)
-result=bs.find_all(rel="icon" )
-print(result)
-# attrs 根据属性进行查找，参数字典
-result=bs.find_all(attrs={'rel':'icon'})
-print(result)
-# text 根据文本进行查找，可以传入正则、字符串、列表,不查找注释里面的内容
-result = bs.find_all(text='Path 鑺傜偣')
-print(result)
-print(result[0].find_parent())
-result = bs.find_all(text=re.compile('ath'))
-print(result)
-result = bs.find_all(text=['Path 鑺傜偣','Path 鑺傜偣dfghksjdhfg'])
-print(result)
-# limit 用于限制最多查找几个
-result = bs.find_all('link',limit=2)
-print(result)
-# recursive 是否要递归查找 默认是true 如果为false只能查找直接子标签(根节点)
-result = bs.find_all('title')
-print(result)
-result = bs.find_all('title',recursive=False)
-print(result)
-result = bs.find_all('html',recursive=False)
-print(result)
+print('_'*100)
+# 格式化输出，更漂亮一点
+print(bs.prettify())
+
+'''
+def __init__(self, markup="", features=None, builder=None,
+             parse_only=None, from_encoding=None, exclude_encodings=None,
+             **kwargs):
+markup="" html的文件对象或者字符串
+features 解析器名称
+builder 解析器对象，一般很少指定
+from_encoding 使用的编码方式
+exclude_encodings 排除的编码方式
+'''
+bs = BeautifulSoup(open('hello.html'),'lxml')
+print(bs)

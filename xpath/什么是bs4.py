@@ -1,12 +1,10 @@
 # -*-coding:  UTF-8
-# @Time    :  2021/5/23 11:16
+# @Time    :  2021/5/22 17:55
 # @Author  :  Cooper
-# @FileName:  通过操作方法进行解读和搜索.py
+# @FileName:  什么是bs4.py
 # @Software:  PyCharm
+# 导入beautifulsoup文档
 from bs4 import BeautifulSoup
-import re
-
-#  准备数据
 html = '''
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -35,8 +33,6 @@ html = '''
 
 
 <title>Path 节点</title>
-<title>Path 节点dfghksjdhfg</title>
-<titl>Path 节点dfghk该开关花费的dhfg</titl>
 <titl><!-- gfkhudfk富贵花开的积分工会看见的还是法国sdjrgdfjg --></titl>
 </head>
 
@@ -300,55 +296,55 @@ W3School 简体中文版提供的内容仅用于培训和测试，不保证内�
 </div>
 </body>
 </html>'''
-bs = BeautifulSoup(html, 'lxml')
-
-'''    
-def find_all(self, name=None, attrs={}, recursive=True, text=None,
-                 limit=None, **kwargs):
-name参数：查找所有名字为name的标签，不过字符串会被自动忽略掉。可以传入标签名，正则，列表，字符串
-soup.find_all('b')
-for tag in soup.find_all(re.compile("^b")):
-    print(tag.name)
-soup.find_all(["a", "b"])
-
-kwargs 根据属性进行查找，命名参数
-attrs 根据属性进行查找，参数字典
-text 根据文本进行查找,可以传入正则、字符串、列表
-limit 用于限制最多查找几个
-recursive 是否要递归查找 默认是true 如果为false只能查找直接子标签
-'''
-bs = BeautifulSoup(html.encode('utf-8'), 'lxml')
+bs = BeautifulSoup(html.encode('utf-8'),'lxml')
+# bs4.element.Tag	表示HTML中的标签，最基本的信息组织单元。
 print(bs)
-result = bs.find_all('link')
-print(result)
-for tag in bs.find_all(re.compile("^l")):
-    print(tag.name)
-print(bs.findAll(['link', 'li']))
-# kwargs 根据属性进行查找，命名参数.直接传入属性值 class 是关键字不能直接写
-result=bs.find_all(type=re.compile('css'))
-print(result)
-result=bs.find_all(rel="icon" )
-print(result)
-result=bs.find_all(rel="icon" )
-print(result)
-# attrs 根据属性进行查找，参数字典
-result=bs.find_all(attrs={'rel':'icon'})
-print(result)
-# text 根据文本进行查找，可以传入正则、字符串、列表,不查找注释里面的内容
-result = bs.find_all(text='Path 鑺傜偣')
-print(result)
-print(result[0].find_parent())
-result = bs.find_all(text=re.compile('ath'))
-print(result)
-result = bs.find_all(text=['Path 鑺傜偣','Path 鑺傜偣dfghksjdhfg'])
-print(result)
-# limit 用于限制最多查找几个
-result = bs.find_all('link',limit=2)
-print(result)
-# recursive 是否要递归查找 默认是true 如果为false只能查找直接子标签(根节点)
-result = bs.find_all('title')
-print(result)
-result = bs.find_all('title',recursive=False)
-print(result)
-result = bs.find_all('html',recursive=False)
-print(result)
+print(type(bs))#<class 'bs4.BeautifulSoup'>
+# 获取节点：直接通过bs.节点获取
+print(bs.title)
+print(bs.div)
+print(type(bs.div))
+#打印link标签， 如果有多个就打印第一个
+print(bs.link)
+#获取标签名称
+print(bs.link.name)
+#获取标签的所有属性
+print(bs.link.attrs)
+
+# bs4.element.NavigableString	表示HTML中标签的文本（非属性字符串）
+# 获取标签中的文本
+# class NavigableString(str, PageElement): 具有str和查找文档的功能
+print(bs.title.string)
+print(type(bs.title.string))# <class 'bs4.element.NavigableString'>
+# NavigableString查找文本的功能
+title=bs.title.string
+# 获取父节点
+print(title.find_parent())
+# 获取下一个节点
+print(title.find_next())
+# 获取上一个节点（父节点）
+print(title.find_previous())
+# bs4.element.Comment	表示标签内字符串的注释部分，是一种特殊的NavigableString对象。
+print(bs.titl.string)
+print(type(bs.titl.string))#<class 'bs4.element.Comment'>
+# 根据HTML或者XML文件创建BeautifulSoup对象。
+# 根据DOM树进行各种节点的搜索，只要获得了一个节点，就可以访问节点的名称、属性和文本。
+# find查找满足要求的第一个元素
+print(bs.find('meta'))
+print(type(bs.find('meta'))) # <class 'bs4.element.Tag'>
+# find_all 查找满足要求的所有元素，返回列表
+print(bs.findAll('meta'))
+print(type(bs.findAll('meta'))) # <class 'bs4.element.ResultSet'>
+print(type(bs.find_all('meta'))) # <class 'bs4.element.ResultSet'>
+# class ResultSet(list):=>当成list 来用
+
+# 在搜索节点的时候，我们也可以按照节点的名称、节点的属性或者节点的文字进行搜索。
+for meta in bs.findAll('meta'):
+    # 获取节点名称
+    print(meta.name)
+    # 获取节点文本
+    print(meta.get_text())  # <class 'str'>不获取注释的文本
+    print(type(meta.get_text()))
+    # 根据属性名称获取属性内容
+    print(meta.get('content'))
+

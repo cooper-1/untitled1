@@ -1,7 +1,7 @@
 # -*-coding:  UTF-8
-# @Time    :  2021/5/23 11:16
+# @Time    :  2021/5/24 23:15
 # @Author  :  Cooper
-# @FileName:  通过操作方法进行解读和搜索.py
+# @FileName:  通过css选择器进行搜索.py
 # @Software:  PyCharm
 from bs4 import BeautifulSoup
 import re
@@ -35,7 +35,7 @@ html = '''
 
 
 <title>Path 节点</title>
-<title>Path 节点dfghksjdhfg</title>
+<title class='adsbygoogle'>Path 节点dfghksjdhfg</title>
 <titl>Path 节点dfghk该开关花费的dhfg</titl>
 <titl><!-- gfkhudfk富贵花开的积分工会看见的还是法国sdjrgdfjg --></titl>
 </head>
@@ -319,36 +319,25 @@ recursive 是否要递归查找 默认是true 如果为false只能查找直接�
 '''
 bs = BeautifulSoup(html.encode('utf-8'), 'lxml')
 print(bs)
-result = bs.find_all('link')
+
+# BeautifulSoup类中提供了一个select()方法，该方法会将CSS选择器搜索到的结果放到列表中。
+# 通过标签查找,直接传入标签名即可，不需要使用任何的修饰符
+
+result = bs.select('title')
 print(result)
-for tag in bs.find_all(re.compile("^l")):
-    print(tag.name)
-print(bs.findAll(['link', 'li']))
-# kwargs 根据属性进行查找，命名参数.直接传入属性值 class 是关键字不能直接写
-result=bs.find_all(type=re.compile('css'))
+# 通过类名查找,需要在class属性前面加  .
+result = bs.select(".adsbygoogle")
 print(result)
-result=bs.find_all(rel="icon" )
+# 通过id名查找,需要在id面前加#
+result = bs.select("#wrapper")
 print(result)
-result=bs.find_all(rel="icon" )
+# 通过组合查找,查找div下面的id="logo"的子标签
+result = bs.select("div #logo")
 print(result)
-# attrs 根据属性进行查找，参数字典
-result=bs.find_all(attrs={'rel':'icon'})
+# 通过组合查找,查找div下面的a的子标签
+result = bs.select("div > a")
 print(result)
-# text 根据文本进行查找，可以传入正则、字符串、列表,不查找注释里面的内容
-result = bs.find_all(text='Path 鑺傜偣')
-print(result)
-print(result[0].find_parent())
-result = bs.find_all(text=re.compile('ath'))
-print(result)
-result = bs.find_all(text=['Path 鑺傜偣','Path 鑺傜偣dfghksjdhfg'])
-print(result)
-# limit 用于限制最多查找几个
-result = bs.find_all('link',limit=2)
-print(result)
-# recursive 是否要递归查找 默认是true 如果为false只能查找直接子标签(根节点)
-result = bs.find_all('title')
-print(result)
-result = bs.find_all('title',recursive=False)
-print(result)
-result = bs.find_all('html',recursive=False)
+# 通过属性查找
+# 查找sizes="48x48" 的link标签
+result = bs.select('link[sizes="48x48"]')
 print(result)

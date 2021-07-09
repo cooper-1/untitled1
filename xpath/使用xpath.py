@@ -1,8 +1,9 @@
 # -*-coding:  UTF-8
-# @Time    :  2021/5/22 16:36
+# @Time    :  2021/5/22 16:49
 # @Author  :  Cooper
-# @FileName:  xpath的使用.py
+# @FileName:  使用xpath.py
 # @Software:  PyCharm
+
 from lxml import etree
 import requests
 from requests.exceptions import ReadTimeout, HTTPError, RequestException
@@ -11,6 +12,7 @@ import random
 
 i = 0
 j = 0
+
 user_agent_list = [ \
     "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/22.0.1207.1 Safari/537.1" \
     "Mozilla/5.0 (X11; CrOS i686 2268.111.0) AppleWebKit/536.11 (KHTML, like Gecko) Chrome/20.0.1132.57 Safari/536.11", \
@@ -33,7 +35,6 @@ user_agent_list = [ \
     "Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/535.24 (KHTML, like Gecko) Chrome/19.0.1055.1 Safari/535.24"
 ]
 
-
 def getlist(url):
     # 获取列表URL
     try:
@@ -43,6 +44,10 @@ def getlist(url):
         res = requests.get(url, headers=header, timeout=20)
         print('第%s轮，第一次·网络状态码: ' % i, res.status_code, url)
         # print(res.content.decode('utf-8'))
+        html = etree.HTML(res.content.decode('utf-8'))
+        result = html.xpath("//ul[@class='t clearfix']/*")
+        for i in result:
+            print(i.text)
     except HTTPError:
         print('httperror')
     except RequestException:
@@ -53,5 +58,5 @@ def getlist(url):
         print(e)
 
 if __name__ == '__main__':
-    url='http://www.weather.com.cn/weather/101281201.shtml'
+    url = 'http://www.weather.com.cn/weather/101281201.shtml'
     getlist(url)
