@@ -6,6 +6,7 @@
 
 import requests
 import random
+import time
 from requests.exceptions import ReadTimeout, HTTPError, RequestException
 
 user_agent_list = [ \
@@ -34,10 +35,13 @@ user_agent_list = [ \
 def getlist(url):
     # 获取列表URL
     try:
+        start=time.time()
         header = {'User-Agent': random.choice(user_agent_list)}  # 随机选一个user-agent
         res = requests.get(url, headers=header, timeout=20)
         print('第一次·网络状态码: ', res.status_code)
         # print(res.content)
+        end=time.time()
+        print('爬取时间为：'+str(end-start))
         return res.content
 
     except HTTPError:
