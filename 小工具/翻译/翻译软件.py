@@ -120,7 +120,7 @@ class Ui_MainWindow(object):
                                             "</style></head><body style=\" font-family:\'黑体\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
                                             "</body></html>"))
 
-        self.pushButton.setText(_translate("MainWindow", "执行"))
+        self.pushButton.setText(_translate("MainWindow", "翻译"))
         self.pushButton.setStyleSheet("color:red")
         self.pushButton_2.setText(_translate("MainWindow", "清空"))
         self.pushButton_2.setStyleSheet("color:gray")

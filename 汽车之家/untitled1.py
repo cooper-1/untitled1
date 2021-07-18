@@ -17,38 +17,38 @@ from PyQt5.QtWidgets import *
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1022, 869)
+        MainWindow.resize(1000, 900)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(20, 20, 221, 81))
+        self.pushButton.setGeometry(QtCore.QRect(20, 20, 220, 80))
         font = QtGui.QFont()
         font.setFamily("黑体")
         font.setPointSize(12)
         self.pushButton.setFont(font)
         self.pushButton.setObjectName("pushButton")
         self.scrollArea = QtWidgets.QScrollArea(self.centralwidget)
-        self.scrollArea.setGeometry(QtCore.QRect(20, 130, 221, 671))
+        self.scrollArea.setGeometry(QtCore.QRect(20, 130, 220, 670))
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 219, 669))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 220, 670))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         # self.treeView = QtWidgets.QTreeView(self.scrollAreaWidgetContents)#源系统生成有误
         self.treeView = QTreeWidget(self.scrollAreaWidgetContents)
-        self.treeView.setGeometry(QtCore.QRect(0, 1, 221, 671))
+        self.treeView.setGeometry(QtCore.QRect(0, 0, 220, 670))
         self.treeView.setObjectName("treeView")
         self.treeView.setHeaderLabel('爬虫爬出的结果')
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.scrollArea_2 = QtWidgets.QScrollArea(self.centralwidget)
-        self.scrollArea_2.setGeometry(QtCore.QRect(240, 130, 681, 671))
+        self.scrollArea_2.setGeometry(QtCore.QRect(240, 130, 680, 670))
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollArea_2.setObjectName("scrollArea_2")
         self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 679, 669))
+        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 680, 670))
         self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
         self.gridLayoutWidget = QtWidgets.QWidget(self.scrollAreaWidgetContents_2)
-        self.gridLayoutWidget.setGeometry(QtCore.QRect(0, 0, 681, 671))
+        self.gridLayoutWidget.setGeometry(QtCore.QRect(0, 0, 680, 670))
         self.gridLayoutWidget.setObjectName("gridLayoutWidget")
         self.gridLayout = QtWidgets.QGridLayout(self.gridLayoutWidget)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
@@ -56,7 +56,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1022, 26))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1000, 25))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -68,11 +68,11 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "汽车之家"))
         self.pushButton.setText(_translate("MainWindow", "搜索"))
-        #获取树形结构根节点
+        # 获取树形结构根节点
         self.root=QTreeWidgetItem(self.treeView)
-        #在根节点添加数据
+        # 在根节点添加数据
         self.root.setText(0,'V8 vantange 2018 款 4.0T V8')
 
 

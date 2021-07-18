@@ -2,9 +2,7 @@
 # @Time    :  2021/7/9 22:18
 # @Author  :  Cooper
 # @FileName:  有道词典.py
-# @Software:  PyCharm
-# ！/usr/bin/python3
-# -*- coding: utf-8 -*-
+
 import json
 import requests
 

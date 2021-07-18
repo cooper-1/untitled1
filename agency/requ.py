@@ -35,7 +35,7 @@ def getlist(url):
     try:
         header = {'User-Agent': random.choice(user_agent_list)}  # 随机选一个user-agent
         res = requests.get(url, headers=header, timeout=20)
-        print('第%s轮，第一次·网络状态码: ' % j, res.status_code)
+        print('第一次·网络状态码: ' , res.status_code)
         return res.content.decode('utf-8')
 
     except HTTPError:
