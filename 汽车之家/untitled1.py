@@ -274,17 +274,78 @@ class Ui_MainWindow(object):
         img.show()
 
 
+# 第一个页面
+class FirstWindow(QWidget):
+    def __init__(self):
+        super().__init__()  # 当需要继承父类构造函数中的内容，且子类需要在父类的基础上补充时，使用super().__init__()方法
+        # 设置标题
+        self.setWindowTitle("登录")
+        self.textfield()
+        self.center()
+
+    # 初始化位置
+    def center(self):
+        qr = self.frameGeometry()
+        cp = QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.move(qr.topLeft())
+
+    # 初始化页面
+    def textfield(self):
+        QToolTip.setFont(QFont('SansSerif', 12))
+        user = QLabel("用户名(mingri):")
+        self.userEdit = QLineEdit()
+        self.userEdit.setToolTip("请输入你的帐号")
+
+        passWord = QLabel("密码(666666):")
+        self.passWordEdit = QLineEdit()
+        self.passWordEdit.setToolTip("请输入你的密码")
+
+        grid = QGridLayout()
+        grid.setSpacing(0)
+
+        grid.addWidget(user, 0, 0)
+        grid.addWidget(self.userEdit, 1, 0)
+        grid.addWidget(passWord, 2, 0)
+        grid.addWidget(self.passWordEdit, 3, 0)
+        empty = QLabel()
+        grid.addWidget(empty, 4, 0)
+
+        btn_logon = QPushButton("登录")
+        btn_quit = QPushButton("退出")
+        grid.addWidget(btn_logon, 5, 0, 1, 2)
+        grid.addWidget(btn_quit, 6, 0, 1, 2)
+        # 登录按钮绑定单击事件
+        btn_logon.clicked.connect(self.onclick)
+        # 退出按钮
+        btn_quit.clicked.connect(quit)
+        self.setLayout(grid)
+
+    # 登录按钮单击事件
+    def onclick(self):
+        if self.userEdit.text() == "mingri":
+            if self.passWordEdit.text() == '666666':
+                ex.close()
+                MainWindow.show()  # 显示窗口
+            else:
+                self.passWordEdit.setText('密码错误请重新输入')
+        else:
+            self.userEdit.setText('账号错误请重新输入')
+
+
 import sys  # 导入系统模块
 
 
-def show_MainWindow():
+
+
+
+if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)  # 实例化QApplication类，作为GUI主程序入口
     MainWindow = QtWidgets.QMainWindow()  # 创建MainWindow
     ui = Ui_MainWindow()  # 实例化ui类
     ui.setupUi(MainWindow)  # 设置窗口UI
-    MainWindow.show()  # 显示窗口
+    # 初始化第一个页面
+    ex = FirstWindow()
+    # 显示第一个页面
+    ex.show()
     sys.exit(app.exec_())  # 当窗口创建完成时，需要结束主循环过程
-
-
-if __name__ == "__main__":
-    show_MainWindow()
