@@ -12,48 +12,125 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
+from agency.requ import getlist
+import time
+import os
+from bs4 import BeautifulSoup
+from PIL import Image
+
+cdir = os.getcwd()
+
+
+class ReTbmm():
+    def Retbmm(self):
+        # https://www.autohome.com.cn/beijing/#汽车之家
+        start = time.time()
+        self.cdir = os.getcwd()
+
+        # 车身外观
+        url1 = 'https://car.autohome.com.cn/pic/series/385-1.html#pvareaid=2042220'
+        # 中控方向盘
+        url2 = 'https://car.autohome.com.cn/pic/series/385-10.html#pvareaid=2042220'
+        # 车厢座椅
+        url3 = 'https://car.autohome.com.cn/pic/series/385-3.html#pvareaid=2042220'
+        # 其他细节
+        url4 = 'https://car.autohome.com.cn/pic/series/385-12.html#pvareaid=2042220'
+
+        self.getImg('车身外观', url1)
+        self.getImg('中控方向盘', url2)
+        self.getImg('车厢座椅', url3)
+        self.getImg('其他细节', url4)
+        # 输出运行时间
+        end = time.time()
+        print('run time:', str(end - start))
+
+    def getImg(self, name, urls):
+        response = getlist(urls)
+        img = BeautifulSoup(response, 'html.parser')
+        t1 = img.find_all('img')
+        for t2 in t1:
+            t3 = t2.get('src')
+            print(t3)
+        # 创建图片路径
+        path = self.cdir + '/mrsoft/' + str(name)
+        # 读取路径
+        if not os.path.exists(path):
+            # 根据路径创建图片文件夹
+            os.makedirs(path)
+        # 每次调用调用初始化图片序号
+        n = 0
+        # 循环图片集合
+        for img in t1:
+            n += 1
+            # 获取图片路径
+            link = img.get('src')
+            # 判断图片路径是否存在
+            if link:
+                # 拼接图片路径
+                s = 'https:' + str(link)
+                # 分离文件
+                i = link[link.rfind('.'):]
+                try:
+                    res = getlist(s)
+                    # 创建文件路径
+                    pathfile = path + r'/' + str(n) + i
+                    with open(pathfile, 'wb') as f:
+                        # 将图片数据写入文件
+                        f.write(res)
+                        print('thread ' + name + 'write: ' + pathfile)
+                except:
+                    print(str(name) + 'thread write false: ' + s)
+        print('下载图片完成')
 
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1000, 900)
+        MainWindow.resize(1250, 960)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(20, 20, 220, 80))
+        self.pushButton.setGeometry(QtCore.QRect(20, 40, 180, 60))
+        font = QtGui.QFont()
+        font.setFamily("黑体")
+        font.setPointSize(9)
+        self.pushButton.setFont(font)
+        self.pushButton.setObjectName("pushButton")
+        self.pushButton1 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton1.setGeometry(QtCore.QRect(20, 40, 180, 60))
         font = QtGui.QFont()
         font.setFamily("黑体")
         font.setPointSize(12)
-        self.pushButton.setFont(font)
-        self.pushButton.setObjectName("pushButton")
+        self.pushButton1.setFont(font)
+        self.pushButton1.setObjectName("pushButton1")
+        self.pushButton1.setVisible(False)
         self.scrollArea = QtWidgets.QScrollArea(self.centralwidget)
-        self.scrollArea.setGeometry(QtCore.QRect(20, 130, 220, 670))
+        self.scrollArea.setGeometry(QtCore.QRect(20, 130, 180, 800))
         self.scrollArea.setWidgetResizable(True)
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 220, 670))
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 180, 800))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         # self.treeView = QtWidgets.QTreeView(self.scrollAreaWidgetContents)#源系统生成有误
         self.treeView = QTreeWidget(self.scrollAreaWidgetContents)
-        self.treeView.setGeometry(QtCore.QRect(0, 0, 220, 670))
+        self.treeView.setGeometry(QtCore.QRect(0, 0, 180, 800))
         self.treeView.setObjectName("treeView")
         self.treeView.setHeaderLabel('爬虫爬出的结果')
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
-        self.scrollArea_2 = QtWidgets.QScrollArea(self.centralwidget)
-        self.scrollArea_2.setGeometry(QtCore.QRect(240, 130, 680, 670))
+        # 创建一个竖向布局容器，并加入到窗口Form中
+        self.verticalLayout = QtWidgets.QVBoxLayout(MainWindow)
+        self.verticalLayout.setObjectName("verticalLayout")
+        # 创建一个滑动控件，并加入到窗口Form中
+        self.scrollArea_2 = QtWidgets.QScrollArea(MainWindow)
+        self.scrollArea_2.setGeometry(QtCore.QRect(200, 130, 1000, 800))
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollArea_2.setObjectName("scrollArea_2")
         self.scrollAreaWidgetContents_2 = QtWidgets.QWidget()
-        self.scrollAreaWidgetContents_2.setGeometry(QtCore.QRect(0, 0, 680, 670))
         self.scrollAreaWidgetContents_2.setObjectName("scrollAreaWidgetContents_2")
-        self.gridLayoutWidget = QtWidgets.QWidget(self.scrollAreaWidgetContents_2)
-        self.gridLayoutWidget.setGeometry(QtCore.QRect(0, 0, 680, 670))
-        self.gridLayoutWidget.setObjectName("gridLayoutWidget")
-        self.gridLayout = QtWidgets.QGridLayout(self.gridLayoutWidget)
-        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        # 创建一个网格布局，并加入到窗口scrollAreaWidgetContents_2中
+        self.gridLayout = QtWidgets.QGridLayout(self.scrollAreaWidgetContents_2)
+        self.gridLayout.setContentsMargins(5, 5, 5, 5)
         self.gridLayout.setObjectName("gridLayout")
-        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1000, 25))
@@ -66,25 +143,148 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+    # UI设置方法 设置ui属性
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "汽车之家"))
-        self.pushButton.setText(_translate("MainWindow", "搜索"))
+        self.pushButton.setText(_translate("MainWindow", "阿斯顿·马丁 汽车图片"))
+        self.pushButton1.setText(_translate("MainWindow", "搜素完成"))
+        # 为按钮添加单击事件
+        self.pushButton.clicked.connect(self.btnstate)
         # 获取树形结构根节点
-        self.root=QTreeWidgetItem(self.treeView)
+        self.root = QTreeWidgetItem(self.treeView)
         # 在根节点添加数据
-        self.root.setText(0,'V8 vantange 2018 款 4.0T V8')
+        self.root.setText(0, 'V8 Vantage 2018款 4.0T V8')
+
+    # 搜索方法
+    def btnstate(self):
+        # 开始搜索 隐藏按钮
+        self.pushButton.setVisible(False)
+        # 实例化爬虫类
+        ui = ReTbmm()
+        # 开启爬虫方法
+        ui.Retbmm()
+        print('显示爬取OK')
+        # 显示已完成按钮
+        self.pushButton1.setVisible(True)
+        print('显示爬取OK2')
+        # 设置文件夹路径 为了树形结构做准备
+        self.path = cdir + '/mrsoft'
+        print('显示爬取OK3')
+        # 查找路径下的所有文件名称
+        dirs = os.listdir(self.path)
+        print('显示爬取OK4')
+        # 循环文件名称
+        for dir in dirs:
+            # 添加文件名称到树形结构
+            QTreeWidgetItem(self.root).setText(0, dir)
+        print('显示爬取OK5')
+        self.treeView.clicked.connect(self.onTreeClicked)
+        print('显示树形结构OK')
+
+    #  树形结构点击后在这里处理
+    def onTreeClicked(self, Qmodelidx):
+        # 获取点击的树形结构
+        print('进入树形结构')
+        items = self.treeView.currentItem()
+        # 判断单击的节点
+        if items.text(0) == 'V8 Vantage 2018款 4.0T V8':
+            # 单机的主节点在这里出来
+            # 删除节点root下的子节点
+            self.root.takeChildren()
+            # 获取路径下的所有文件
+            dirs = os.listdir(self.path)
+            # 循环文件
+            for dir in dirs:
+                # 设置子节点
+                QTreeWidgetItem(self.root).setText(0, dir)
+                # 注册点击事件
+            self.treeView.clicked.connect(self.onTreeClicked)
+            pass
+        else:
+            # 每次点循环删除管理器的组件
+            while self.gridLayout.count():
+                # 获取第一个组件
+                item = self.gridLayout.takeAt(0)
+                # 删除组件
+                widget = item.widget()
+                widget.deleteLater()
+            # 每次点击 树形结构把图片集合清空
+            filenames = []
+            # 根据路径查找文件夹下所有文件 ，循环文件夹下文件名称
+            for filename in os.listdir(cdir + '/mrsoft/' + items.text(0)):  # listdir的参数是文件夹的路径
+                # 把名称添加到集合中
+                filenames.append(filename)
+            # 行数标记
+            i = -1
+            # 根据图片的数量进行循环
+            for n in range(len(filenames)):
+                print('进入for循环')
+                # x 确定每行显示的个数 0，1，2 每行3个
+                x = n % 3
+                # 当x为0的时候设置换行 行数+1
+                if x == 0:
+                    i += 1
+                # 创建布局
+                self.widget = QWidget()
+                # 设置布局大小
+                self.widget.setGeometry(QtCore.QRect(110, 40, 200, 200))
+                # 给布局命名
+                self.widget.setObjectName("widget" + str(n))
+                # 创建个Qlabel控件用于显示图片 设置控件在QWidget中
+                self.label = QLabel(self.widget)
+                # 设置大小
+                self.label.setGeometry(QtCore.QRect(0, 0, 350, 300))
+                # 设置要显示的图片
+                self.label.setPixmap(QPixmap(self.path + '/' + items.text(0) + '/' + filenames[n]))
+                # 图片显示方式 让图片适应QLabel的大小
+                self.label.setScaledContents(True)
+                # 给图片控件命名
+                self.label.setObjectName("label" + str(n))
+                # 创建按钮 用于点击后放大图 设置按钮在QWidget中
+                self.commandLinkButton = QCommandLinkButton(self.widget)
+                # 设置按钮位置
+                self.commandLinkButton.setGeometry(QtCore.QRect(0, 0, 111, 41))
+                # 给按钮命名
+                self.commandLinkButton.setObjectName("label" + str(n))
+                # 设置按钮上显示文字
+                self.commandLinkButton.setText(filenames[n])
+                # # 注册信号槽 使用lambda 传递参数给方法
+                self.commandLinkButton.clicked.connect(lambda: self.wichbtn(self.path + '/' + items.text(0) + '/'))
+                # self.commandLinkButton.objectName()
+                # 吧动态添加的widegt布局添加到gridLayout中 i，x分别代表：行数以及每行的个数
+                self.gridLayout.addWidget(self.widget, i, x)
+
+            # 设置上下滑动控件可以滑动 把scrollAreaWidgetContents_2添加到scrollArea中
+            self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
+            self.verticalLayout.addWidget(self.scrollArea_2)
+            # 设置scrollAreaWidgetContents_2最大宽度 为 scrollArea_2宽度 可以都显示下来不用左右滑动
+            self.scrollAreaWidgetContents_2.setMinimumWidth(800)
+            # 设置高度为动态高度根据 行数确定高度 每行500
+            self.scrollAreaWidgetContents_2.setMinimumHeight(i * 300)
+
+            # 信号槽 点击按钮显示大图功能
+
+    def wichbtn(self, tppath):
+        # 获取信号源 点击的按钮
+        sender = self.gridLayout.sender()
+        print('信号源', sender.objectName())
+        # 使用电脑中的看图工具打开图片
+        img = Image.open(tppath + sender.text())
+        img.show()
 
 
+import sys  # 导入系统模块
 
 
-import sys  #导入系统模块
 def show_MainWindow():
-    app = QtWidgets.QApplication(sys.argv)         #实例化QApplication类，作为GUI主程序入口
-    MainWindow=QtWidgets.QMainWindow()             #创建MainWindow
-    ui=Ui_MainWindow()                             #实例化ui类
-    ui.setupUi(MainWindow)                         #设置窗口UI
-    MainWindow.show()                              #显示窗口
-    sys.exit(app.exec_())                          #当窗口创建完成时，需要结束主循环过程
-if __name__=="__main__":
+    app = QtWidgets.QApplication(sys.argv)  # 实例化QApplication类，作为GUI主程序入口
+    MainWindow = QtWidgets.QMainWindow()  # 创建MainWindow
+    ui = Ui_MainWindow()  # 实例化ui类
+    ui.setupUi(MainWindow)  # 设置窗口UI
+    MainWindow.show()  # 显示窗口
+    sys.exit(app.exec_())  # 当窗口创建完成时，需要结束主循环过程
+
+
+if __name__ == "__main__":
     show_MainWindow()
