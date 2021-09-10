@@ -169,7 +169,7 @@ class Ui_MainWindow(object):
     def updateUi(self, text):
         try:
             # text = 'bfsdgfkh klshal onfsydb vero yubtsherklu bhsdoirhgh'
-            self.textBrowser.append("<br >%s </br>" % text)  # 显示内容支撑html格式语法
+            self.textBrowser.append("<br >%s</br>" % text)  # 显示内容支撑html格式语法
         except:
             self.textBrowser.append("<font color=red>%s is invalid!</font>" % text)
 
